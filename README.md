@@ -20,7 +20,19 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-WeatherTop Inc. produce a modular weather station called the WeatherTop 1000. This lowcost device takes a set of meteorological readings and displays these on a simple LCD display. WeatherTop Inc. are seeking a Web companion application for the device. This document outlines my submission for this Assignment.
+My IOT Assignment project is going to be based on Security and privacy within a controlled environment within a company. 
+
+Even with security on a door you may still have to give multiple people access to the controlled environment who shouldn’t have access to everything contained within the controlled environment. As with the cost of space a company might not have the funds to create multiple controlled environments.
+
+**Problem:** Some devices\systems within the controlled environment could be accessed by people who shouldn’t have access to them as they are in the controlled environment working on other systems.  
+
+**Solution:** AMD (Automated Management Systems) is a smart system which controls the following within that controlled environment:
+
+1.	Access (Facial Recognition & Remote Access).
+2.	Security Monitoring (Only lets allowed personal access to each device).
+3.	Powering on devices (If only one person in a room only the devices they are allowed to run will power on. If multiple people in room Facial Recognition and/or QR Code needed to power on the device).
+4.	Logging into devices (Facial Recognition and/or QR Code needed to login to a device). 
+
 <!-- 
 | Developed With| Templated With |  Styled With | 
 | :----:        |    :----:   |  :----:   |
