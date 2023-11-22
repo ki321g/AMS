@@ -19,18 +19,14 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-My IOT Assignment project is going to be based on Security and privacy within a controlled environment within a company. 
+The Automated Management Systems (AMS) is an innovative IoT project focused on enhancing security and privacy in a controlled company environment. Addressing the challenge of granting controlled access without compromising sensitive information, AMS introduces a comprehensive solution.
 
-Even with security on a door you may still have to give multiple people access to the controlled environment who shouldn’t have access to everything contained within the controlled environment. As with the cost of space a company might not have the funds to create multiple controlled environments.
+AMS integrates facial recognition and remote access technologies to regulate entry, ensuring only authorized personnel enter the controlled environment. It employs sophisticated security monitoring to restrict access to specific devices, preventing unauthorized usage within the environment.
 
-**Problem:** Some devices\systems within the controlled environment could be accessed by people who shouldn’t have access to them as they are in the controlled environment working on other systems.  
+This system optimizes energy consumption by selectively powering on devices based on user permissions. When multiple individuals are present, AMS requires facial recognition or QR code authentication for device activation, ensuring access control.
 
-**Solution:** AMD (Automated Management Systems) is a smart system which controls the following within that controlled environment:
-
-1.	Access (Facial Recognition & Remote Access).
-2.	Security Monitoring (Only lets allowed personal access to each device).
-3.	Powering on devices (If only one person in a room only the devices they are allowed to run will power on. If multiple people in room Facial Recognition and/or QR Code needed to power on the device).
-4.	Logging into devices (Facial Recognition and/or QR Code needed to login to a device). 
+Additionally, AMS implements secure login protocols for devices, requiring facial recognition and/or QR code authentication, thereby enhancing security measures within the controlled environment. By providing detailed access control and authentication mechanisms, AMS ensures heightened security and restricted access while optimizing resource utilization.
+ 
 
 <!-- 
 | Developed With| Templated With |  Styled With | 
