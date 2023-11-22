@@ -1,7 +1,6 @@
 <a name="readme-top"></a>
 <!-- PROJECT SHIELDS -->
 <!-- PROJECT LOGO -->
-<br />
 <div align="center">
   <h1 align="center">AMS - “Automated Management Systems”</h1>
 <!--   <img src="readme/images/weathertop.png" alt="Logo">  -->
