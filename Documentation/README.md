@@ -9,16 +9,13 @@
 <details>
   <summary>Table of Contents</summary>
   <ol>
-    <li><a href="#about-the-project">About The Project</a></li>
-    <li><a href="#live-demo">Live Demo</a></li>
-    <li><a href="#video-walk-through">Video Walk Through</a></li>   
-    <li><a href="#installation">Installation</a></li>
+    <li><a href="#about-the-project">Assignment Documentationt</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
 
-<!-- ABOUT THE PROJECT -->
-## Documentation
+<!-- Assignment Documentationt -->
+## Assignment Documentationt
 The Automated Management Systems (AMS) is an innovative IoT project focused on enhancing security and privacy in a controlled company environment. Addressing the challenge of granting controlled access without compromising sensitive information, AMS introduces a comprehensive solution.
 
 AMS integrates facial recognition and remote access technologies to regulate entry, ensuring only authorized personnel enter the controlled environment. It employs sophisticated security monitoring to restrict access to specific devices, preventing unauthorized usage within the environment.
@@ -31,7 +28,6 @@ Additionally, AMS implements secure login protocols for devices, requiring facia
 
 <!-- CONTACT -->
 ## Contact
-
 Your Name - Kieron Garvey
 
 Project Link: [https://github.com/ki321g/AMS/](https://github.com/ki321g/AMS)
