@@ -9,7 +9,7 @@
 <details>
   <summary>Table of Contents</summary>
   <ol>
-    <li><a href="#about-the-project">Assignment Documentation</a></li>
+    <li><a href="#Assignment-Documentation">Assignment Documentation</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
