@@ -75,8 +75,16 @@ interval = 0.5
 button = Button(21)
 led1 = LED(18)
 
+toggle=0       # This is a global variable 
+
+def set_global():
+    global toggle  # Declaring that we're using the global variable
+    toggle = 1    # Modifying the global variable inside the function
+
+
 # Function to decode barcode from camera image
 def decodeCam(image):
+    
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     barcodes = pyzbar.decode(gray)
     print('reading...', end='\r')
@@ -84,6 +92,22 @@ def decodeCam(image):
         barcodeData = barcode.data.decode()
         barcodeType = barcode.type
         print("Type:{} | Data: {}".format(barcodeType, barcodeData))
+        
+        if toggle != 1:
+
+            if barcodeData == "Test":
+                # Send a GET request with authentication to the specified URL
+                response = session.get(url)
+
+                # Check the response
+                if response.status_code == 200:
+                    print("Request successful! Plug Turned on")
+                else:
+                    print(f"Request failed with status code {response.status_code}")  
+            else:
+                print("Wrong QR Code Scanned")
+
+            set_global()
     return image
 
 # Function to perform actions based on facial recognition 
@@ -95,14 +119,14 @@ def go_facialrec():
         print("Access Granted to ", name)
         names_set.add(name)  
 
-        # Send a GET request with authentication to the specified URL
-        response = session.get(url)
+        # # Send a GET request with authentication to the specified URL
+        # response = session.get(url)
 
-        # Check the response
-        if response.status_code == 200:
-            print("Request successful! Plug Turned on")
-        else:
-            print(f"Request failed with status code {response.status_code}")    
+        # # Check the response
+        # if response.status_code == 200:
+        #     print("Request successful! Plug Turned on")
+        # else:
+        #     print(f"Request failed with status code {response.status_code}")    
     else:                
         print("Access Denied")       
     
@@ -122,11 +146,12 @@ try:
             button.when_pressed = go_facialrec  
 
             # Decode QR/barcode if the name is in the recognized set
-            if  name in names_set:
+            if name in names_set:
+              # Display name around detected face
+              cv2.putText(frame, name,(x1, y1 - 10), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 200), 2)
               im=decodeCam(frame)         
 
-            # Display name and rectangle around detected face
-            cv2.putText(frame, name,(x1, y1 - 10), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 200), 2)
+            # Display rectangle around detected face            
             cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 0, 200), 4)                                   
 
         # Display the video
