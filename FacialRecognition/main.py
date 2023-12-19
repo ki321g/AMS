@@ -15,6 +15,8 @@ import pyzbar.pyzbar as pyzbar              # For decoding barcodes
 from dotenv import load_dotenv              # For loading variables from a .env file
 import os                                   # For interacting with the operating system, including environmental variables
 os.environ['QT_QPA_PLATFORM'] = 'xcb'
+import firebase_admin
+from firebase_admin import credentials, firestore, storage, db
 #from firebase import FirebaseApp    # Custom face recognition library
 
 # Load variables from .env file
@@ -26,6 +28,16 @@ password = os.getenv('PASSWORD')
 base_url = os.getenv('URL')  # Store the base URL without the endpoint
 firebase_bucket = os.getenv('BUCKET')  # Store the base URL without the endpoint
 firebase_URL = os.getenv('DB_URL')  # Store the base URL without the endpoint
+
+
+# Firebase Setup
+cred=credentials.Certificate('./serviceAccountKey.json')
+firebase_admin.initialize_app(cred, {
+    'storageBucket': firebase_bucket, #  BUCKET ID
+    'databaseURL': firebase_URL # DB URL
+})
+
+bucket = storage.bucket() # Bucket
 
 # Concatenate the base URL with the specific endpoint for HTTP Requests
 endpoint = '1'                  # Value to be pulled from DB
@@ -41,20 +53,20 @@ session.auth = HTTPBasicAuth(username, password)
 screen_width, screen_height = pyautogui.size()
 
 # For Debug
-print("screen_width: {} | screen_height: {}".format(screen_width, screen_height))
+#print("screen_width: {} | screen_height: {}".format(screen_width, screen_height))
 
 # Set the capture resolution (optional)
 capture_width, capture_height = 960, 720  # Adjust these values as needed
 
 # For Debug
-print("capture_width: {} | capture_height: {}".format(capture_width, capture_height))
+#print("capture_width: {} | capture_height: {}".format(capture_width, capture_height))
 
 # Calculate the position for centering the window
 window_x = int((screen_width - capture_width) / 2)
 window_y = int((screen_height - capture_height) / 2)
 
 # For Debug
-print("window_x: {} | window_y: {}".format(window_x, window_y))
+#print("window_x: {} | window_y: {}".format(window_x, window_y))
 
 # Initialize face recognition from images in the 'images/' folder
 sfr = SimpleFacerec()
@@ -64,7 +76,7 @@ sfr.load_encoding_images("images/")
 cap = cv2.VideoCapture(0)
 
 # For Debug
-print("CAP_PROP_FRAME_WIDTH: {} | CAP_PROP_FRAME_HEIGHT: {}".format(cv2.CAP_PROP_FRAME_WIDTH, cv2.CAP_PROP_FRAME_HEIGHT))
+#print("CAP_PROP_FRAME_WIDTH: {} | CAP_PROP_FRAME_HEIGHT: {}".format(cv2.CAP_PROP_FRAME_WIDTH, cv2.CAP_PROP_FRAME_HEIGHT))
 
 # Set the video size
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, capture_width)
@@ -83,7 +95,6 @@ buttons = {
 }
 
 # global variables 
-
 checkQRCode=0   # Enable QR Code Check
 toggle=0        # This is a global variable 
 globalbtn=0        #global button value
@@ -113,16 +124,8 @@ def decodeQRCode(image):
         print("Type:{} | Data: {}".format(barcodeType, barcodeData))
         
         if toggle != 1:
-
+            # If Barcode is correct
             if barcodeData == "Test":
-                # # Send a GET request with authentication to the specified URL
-                # response = session.get(url)
-
-                # # Check the response
-                # if response.status_code == 200:
-                #     print("Request successful! Plug Turned on")
-                # else:
-                #     print(f"Request failed with status code {response.status_code}")  
                 toggle_device(globalbtn)
             else:
                 print("Wrong QR Code Scanned")
@@ -136,8 +139,9 @@ def toggle_device(button):
     # Concatenate the base URL with the specific endpoint for HTTP Requests
     endpoint = buttons[button]                  # Value to be pulled from DB
     url = f"{base_url}{endpoint}"
-   
-    print(f"Button# {buttons[button]} on GPIO{button.pin.number} pressed")
+    
+    # For Debug
+    #print(f"Button# {buttons[button]} on GPIO{button.pin.number} pressed")
 
      # Send a GET request with authentication to the specified URL
     response = session.get(url)
@@ -153,17 +157,8 @@ def checkForKnownFace():
 
     # Check if the name is not 'Unknown' 
     if name != 'Unknown':  
-        print("Access Granted to ", name)
-        names_set.add(name)  
-
-        # # Send a GET request with authentication to the specified URL
-        # response = session.get(url)
-
-        # # Check the response
-        # if response.status_code == 200:
-        #     print("Request successful! Plug Turned on")
-        # else:
-        #     print(f"Request failed with status code {response.status_code}")    
+        #print("Access Granted to ", name)
+        names_set.add(name)    
     else:                
         print("Access Denied")       
 
@@ -183,14 +178,13 @@ def security_type_2():
 def security_type_3():    
     set_global_checkQRCode() 
 
-def security_type_4():
-    print("Case#4")
-    
+def security_type_4():    
     # Concatenate the base URL with the specific endpoint for HTTP Requests
     endpoint = buttons[button]                  # Value to be pulled from DB
     url = f"{base_url}{endpoint}"
    
-    print(f"Button# {buttons[button]} on GPIO{button.pin.number} pressed")
+    # For Debug
+    #print(f"Button# {buttons[button]} on GPIO{button.pin.number} pressed")
 
      # Send a GET request with authentication to the specified URL
     response = session.get(url)
@@ -202,9 +196,32 @@ def security_type_4():
         print(f"Request failed with status code {response.status_code}")    
 
 def security_type_5():
-    print("Case#5")
-    # Save the image
-    cv2.imwrite('mynewimage.jpg', frame)
+    checkForKnownFace() 
+    # if the name is in the recognized set
+    if name in names_set:        
+        #split the name up
+        firstname, lastname = name.split()
+
+        # Get the current date and time
+        now = datetime.now()
+
+        # Format the date and time
+        formatted_date_time = now.strftime("%d%m%Y_%H%M%S")
+
+        # Use the formatted date and time in a file name
+        image_name = f'{firstname}_{lastname}_{formatted_date_time}'
+
+        #cv2.imwrite(f'./images/access/{firstname}_{lastname}.jpg', original_frame) # Save the image
+        cv2.imwrite(f'./images/access/{image_name}.jpg', original_frame) # Save the image
+
+        device = buttons[button] # Setting Devive to Activate
+        #image_url = store_file(f'./images/access/{firstname}_{lastname}.jpg') # Image URL to send
+        image_url = store_file(f'./images/access/{image_name}.jpg') # Image URL to send
+
+        #os.remove(f'./images/access/{firstname}_{lastname}.jpg') # Delete Local Image
+        os.remove(f'./images/access/{image_name}.jpg') # Delete Local Image
+
+        request_access(device, firstname, lastname, image_url)
 
 # Define action for when button is press
 def device_interaction(button):
@@ -222,6 +239,63 @@ def device_interaction(button):
 
     # call the function associated with the button value
     securityCheck.get(int(buttons[button]) , lambda: "Invalid button")()
+
+def request_access(device, firstname, lastname, image_url):
+    # Concatenate the base URL with the specific endpoint for HTTP Requests  
+    access_point = 'telegram'                  # Value to be pulled from DB
+    url_access = f"{base_url}{access_point}"
+
+    #print(url_access)
+
+    headers = {
+        'Content-Type': 'application/json',
+    }
+
+    params = {
+        'device': device,
+        'firstname': firstname,
+        'lastname': lastname,
+        'image': image_url
+    }
+
+    #response = session.get(url)
+
+    response = session.get(url_access, params=params, headers=headers)
+
+
+    # Check the response
+    if response.status_code == 200:
+        print(f"HTTP Respose Code: 200")
+    else:
+        print(f"failed")
+
+    #delete_file(url_access) # Delete Local Image
+
+def delete_file(file_path):
+    # Create a reference to the file
+    blob = bucket.blob(file_path)
+
+    # Delete the file
+    blob.delete()       
+
+def store_file(fileLoc):
+    filename=os.path.basename(fileLoc)
+
+    # Store File in FB Bucket
+    #blob = bucket.blob(filename)
+    # Include the folder name in the blob name
+    blob = bucket.blob('access/' + filename)
+    outfile=fileLoc
+    blob.upload_from_filename(outfile)
+
+    # Make the blob publicly readable
+    blob.make_public()
+
+    # Get the URL of the file
+    file_url = blob.public_url
+
+    return file_url
+
 
 # Main loop for capturing and processing video frames
 try:
@@ -245,7 +319,9 @@ try:
 
             if checkQRCode == 1:
                 im=decodeQRCode(frame) 
-        
+                
+            original_frame = frame.copy()
+            #original_frame = frame.
             # Display rectangle around detected face            
             cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 0, 200), 4)                                   
 
