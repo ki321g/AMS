@@ -25,6 +25,32 @@ https://a-s-m.glitch.me/
 
 <!-- Installation -->
 ### Installation
+
+Follow these steps to set up and run the website:
+
+1. **Clone the repository**: First, you need to clone the repository from GitHub. You can do this by running the following command in your terminal:
+
+```bash
+git clone <repository-url>
+
+2. **Navigate to the project directory**: After cloning the repository, navigate to the project directory by running the following command:
+
+```bash
+cd <project-name>
+
+3. **Install the dependencies**: The project dependencies are listed in the package.json file. You can install these dependencies by running the following command:
+
+```bash
+npm install
+
+4. **Start the project**: After installing the dependencies, you can start the project by running the following command:
+
+```bash
+npm start
+
+
+
+
 TBD - Systsem is not designed yet
  To get a copy of the project running on your system, navigate to the project directory in a command prompt/shell and run the following:
   ```
