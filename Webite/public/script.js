@@ -5,7 +5,7 @@ let storage, database, auditTrailRef, devicesRef, adminRef;
 const fetchConfig = async () => {
 	try {
 		console.log('Fetch Firebase config...');
-		const response = await fetch('/api/config');
+		const response = await fetch('/firebase/config');
 		const firebaseConfig = await response.json();
 
 		return firebaseConfig;
