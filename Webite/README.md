@@ -48,7 +48,7 @@ git clone https://github.com/ki321g/AMS.git
 cd AMS\Webite
 ``` 
 
-1. **Edit the .env file**:  Locate the .env file and update the specified code with your Firebase configuration."
+3. **Edit the .env file**:  Locate the .env file and update the specified code with your Firebase configuration."
 
 ```js
 FIREBASE_API_KEY='Firebase_apiKey'
