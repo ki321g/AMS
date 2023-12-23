@@ -8,13 +8,18 @@
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
-  <ol>
-    <li><a href="#Demo-Web-Application ">Demo Web Application </a></li>     
+  <ol>     
     <li><a href="#Website-Setup">Website Setup </a></li> 
+    <li><a href="#Demo-Web-Application ">Demo Web Application </a></li>
     <li><a href="#installation">Installation</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
+<!-- Website Setup -->
+## Website Setup 
+We assume you have Node.js and Git installed on your system, follow the process below to set up and deploy our web app effortlessly.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- Demo Web APP  -->
 ## Demo Web Application 
@@ -22,12 +27,6 @@ Visit the following URL to see a running demo of our application.
 
 **URL**:
 [https://a-s-m.glitch.me/](https://a-s-m.glitch.me/)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- Website Setup -->
-## Website Setup 
-We assume you have Node.js and Git installed on your system, follow the process below to set up and deploy our web app effortlessly.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
