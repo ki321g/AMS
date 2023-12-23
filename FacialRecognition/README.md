@@ -18,7 +18,15 @@
 
 <!-- Facial Recognition -->
 ## Facial Recognition
-Documentation is the lifeblood of any project, serving as its roadmap, its history, and its guidebook. It's the bridge between ideas and execution. Clear, concise, and comprehensive documentation not only ensures smoother development but also empowers users to harness the full potential of the project. Within this repository, you'll find my documentation, designed to explain how i have done things, and pave the way for an enriching experience while looking at this project."
+I combined the Raspberry Pi with OpenCV and the python face_recognition library to create a tool for my facial recognition system. 
+
+OpenCV (Open Source Computer Vision Library) is a library of programming functions mainly aimed at real-time computer vision. It provides tools and functions to help with many image processing tasks such as filtering, color manipulation, object detection, and more.
+
+The face_recognition library in Python is built on top of dlib's state-of-the-art face recognition technology that uses deep learning. It simplifies the process of detecting and recognizing faces in images or through a webcam feed.
+
+By using these tools together on a Raspberry Pi, i developed a compact, cost-effective, and efficient facial recognition system. 
+
+I used the Raspberry Pi's GPIO pins to connect a breadboard with 5 buttons one for each of the devices i am settgin up on my system.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
