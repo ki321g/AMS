@@ -9,8 +9,8 @@
 <details>
   <summary>Table of Contents</summary>
   <ol>
+    <li><a href="#Demo-Web-Application ">Demo Web Application </a></li>     
     <li><a href="#Website-Setup">Website Setup </a></li> 
-    <li><a href="#Demo-Web-APP ">Demo Web APP </a></li> 
     <li><a href="#installation">Installation</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
