@@ -93,7 +93,7 @@ Select the created project to enter the **Project Overview** page and get the **
 ## References
 The following resources were used in the making of this readme:
 
-1. **[Home Assistant Integration instructions](https://www.home-assistant.io/integrations/tuya/)** 
+1. **[Home Assistant Tuya Integration instructions](https://www.home-assistant.io/integrations/tuya/)** 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
