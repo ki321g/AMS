@@ -13,6 +13,7 @@
     <li><a href="#live-demo">Live Demo</a></li>
     <li><a href="#video-walk-through">Video Walk Through</a></li>   
     <li><a href="#installation">Installation</a></li>
+    <li><a href="#references">References</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
@@ -59,6 +60,11 @@ This will load the application and start a local server on port 4000.
 -->
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- References -->
+## References
+The following resources were used in the making of this readme:
+
+1. **[Home Assistant Integration instructions](https://www.home-assistant.io/integrations/tuya/)** 
 
 <!-- CONTACT -->
 ## Contact
