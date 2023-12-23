@@ -62,7 +62,7 @@ This will load the application and start a local server on port 4000.
 
 <!-- References -->
 ## References
-The following resources were used in the making of this readme:
+The following resources were used in the devlopment of this project:
 
 1. **[Home Assistant Tuya Integration instructions](https://www.home-assistant.io/integrations/tuya/)** 
 
