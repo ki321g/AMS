@@ -138,6 +138,10 @@ input:checked + .slider:before {
 	padding: 1.25rem 1.5rem 1rem;
 }
 
+.table-responsive {
+	overflow-x: auto;
+}
+
 /**************
  * Modals CSS *
  /*************/
@@ -196,4 +200,22 @@ footer {
 .my-footer-padding {
 	background-color: #fafafa;
 	padding: 1.25rem 1.5rem 1rem;
+}
+
+/**************
+ * Mobile CSS *
+ /*************/
+@media (max-width: 768px) {
+	.device-list {
+		flex-direction: column;
+	}
+
+	.device-list .column {
+		flex: 1 0 auto;
+		margin-bottom: 2px;
+	}
+
+	thead {
+		font-size: 0.8em; /* Adjust as needed */
+	}
 }
