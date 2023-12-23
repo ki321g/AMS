@@ -10,6 +10,7 @@
   <summary>Table of Contents</summary>
   <ol>
     <li><a href="#facial-recognition">Facial Recognition</a></li>
+    <li><a href="#raspberry-pi-setup">Raspberry Pi Setup</a></li>
     <li><a href="#installation">Installation</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
@@ -21,9 +22,8 @@ Documentation is the lifeblood of any project, serving as its roadmap, its histo
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-<!-- Installation -->
-### Installation
+<!-- Raspberry Pi Setup -->
+### Raspberry Pi Setup
 
 To import all the relevant libraries into your Python script on your Raspberry Pi, you need to install them first. Below you will find a list of the commands I used in my terminal to install these libraries. 
 
@@ -92,12 +92,18 @@ sudo pip3 install gpiozero
 pip3 install firebase-admin
 ```  
 
-
 11. **cvzone**: is a computer vision library that includes several utilities to help you with computer vision tasks.:
 
 ```bash
 pip3 install cvzone
 ```  
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+<!-- Installation -->
+### Installation
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
