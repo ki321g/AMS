@@ -23,6 +23,8 @@ Visit the following URL to see a running demo of our application.
 **URL**:
 [https://a-s-m.glitch.me/](https://a-s-m.glitch.me/)
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- Website Setup -->
 ## Website Setup 
 We assume you have Node.js and Git installed on your system, follow the process below to set up and deploy our web app effortlessly.
