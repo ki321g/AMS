@@ -206,16 +206,24 @@ footer {
  * Mobile CSS *
  /*************/
 @media (max-width: 768px) {
+	/* Adjust the padding of the device section */
 	.device-list {
 		flex-direction: column;
 	}
 
+	/* Adjust the padding of the device section */
 	.device-list .column {
 		flex: 1 0 auto;
 		margin-bottom: 2px;
 	}
 
+	/* Adjust the size of the table */
 	thead {
 		font-size: 0.8em; /* Adjust as needed */
+	}
+
+	/* Adjust the size of the navbar brand */
+	.navbar-brand .navbar-item {
+		font-size: 1.25em !important; /* Adjust as needed */
 	}
 }
