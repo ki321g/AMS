@@ -24,6 +24,6 @@ app.get('/api/config', (req, res) => {
   res.json(firebaseConfig);
 });
 
-app.listen(3000, () => {
-  console.log('Server is running on http://localhost:3000');
+app.listen(process.env.PORT, () => {
+  console.log(`Server running at http://localhost:${process.env.PORT}`);
 });
