@@ -8,7 +8,7 @@ const app = express();
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/api/config', (req, res) => {
+app.get('/firebase/config', (req, res) => {
   // Load data from env file containing firebase config
   const firebaseConfig = {
     apiKey: process.env.FIREBASE_API_KEY,
