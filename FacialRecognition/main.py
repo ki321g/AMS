@@ -5,7 +5,7 @@ from signal import pause                    # For signal handling
 from datetime import datetime               # For handling date and time
 from time import sleep                      # For time-related functions
 import time                                 # For time functions
-from gpiozero import Button            # For controlling GPIO pins
+from gpiozero import Button                 # For controlling GPIO pins
 import cv2                                  # OpenCV for image processing
 from simple_facerec import SimpleFacerec    # Custom face recognition library
 import pyautogui                            # Library to get screen resolution
@@ -23,30 +23,25 @@ os.environ['QT_QPA_PLATFORM'] = 'xcb'
 load_dotenv()
 
 # Retrieve variables from the .env file to use in HTTP Requests
-username = os.getenv('USERNAME')
-password = os.getenv('PASSWORD')
-base_url = os.getenv('URL')  # Store the base URL without the endpoint
-firebase_bucket = os.getenv('BUCKET')  # Store the base URL without the endpoint
-firebase_URL = os.getenv('DB_URL')  # Store the base URL without the endpoint
+username = os.getenv('USERNAME')        # Get the username from the .env file
+password = os.getenv('PASSWORD')        # Get the password from the .env file
+base_url = os.getenv('URL')             # Get the base URL from the .env file
+firebase_bucket = os.getenv('BUCKET')   # Get the bucket ID from the .env file
+firebase_URL = os.getenv('DB_URL')      # Get the DB URL from the .env file
 
 # Firebase Setup
 cred=credentials.Certificate('./serviceAccountKey.json')
 firebase_admin.initialize_app(cred, {
-    'storageBucket': firebase_bucket, #  BUCKET ID
-    'databaseURL': firebase_URL # DB URL
+    'storageBucket': firebase_bucket,    # BUCKET ID
+    'databaseURL': firebase_URL          # DB URL
 })
 
-bucket = storage.bucket() # Bucket
+bucket = storage.bucket()                   # Create a bucket object for the default bucket
+ref = db.reference('/')                     # Create a reference to the root of the database
+audittrail_ref = ref.child('audittrail')    # Create a reference to the audittrail collection
+employees_ref = ref.child('employees')      # Create a reference to the employees collection
 
-ref = db.reference('/')
-audittrail_ref = ref.child('audittrail')
-employees_ref = ref.child('employees')
-
-# Concatenate the base URL with the specific endpoint for HTTP Requests
-endpoint = '1'                  # Value to be pulled from DB
-url = f"{base_url}{endpoint}"
-
-# print("Url:{} | USERNAME: {} | PASSWORD: {}".format(url, username, password))
+# print("Url:{} | USERNAME: {} | PASSWORD: {}".format(url, username, password)) # For Debug
 
 # Create a session with authentication for HTTP Requests
 session = requests.Session()
@@ -96,21 +91,21 @@ buttons = {
 # global variables 
 checkQRCode=0   # Enable QR Code Check
 toggle=0        # This is a global variable 
-globalbtn=0        #global button value
+globalbtn=0     # global button value
 
 def set_global_toggle():
     global toggle  # Declaring that we're using the global variable
-    toggle=1    # Modifying the global variable inside the function
+    toggle=1       # Modifying the global variable inside the function
 
 def set_global_checkQRCode():
-    global checkQRCode  # Declaring that we're using the global variable
+    global checkQRCode    # Declaring that we're using the global variable
     if checkQRCode == 0:
-        checkQRCode=1    # Modifying the global variable inside the function
+        checkQRCode=1     # Modifying the global variable inside the function
     else:
-        checkQRCode=0
+        checkQRCode=0     # Modifying the global variable inside the function
 
 def set_globalbtn(button):
-    global globalbtn  # Declaring that we're using the global variable
+    global globalbtn    # Declaring that we're using the global variable
     globalbtn=button    # Modifying the global variable inside the function
 
 # Function to decode barcode from camera image
@@ -126,12 +121,9 @@ def decodeQRCode(image):
         #print('globalbtn testing: ', buttons[globalbtn])   # Debug
         
         if toggle != 1:
-            if name in names_set:
-                #split the name up
-                firstname, lastname = name.split()
-
-                # Get the employeeID
-                accesskey = get_accesskey(firstname, lastname)
+            if name in names_set:                
+                firstname, lastname = name.split() # split the name up                
+                accesskey = get_accesskey(firstname, lastname) # Get the employeeID
 
                 # print('accesskey testing: ', accesskey)  # For Debug
 
@@ -140,19 +132,15 @@ def decodeQRCode(image):
                     set_global_checkQRCode()   # Modifying the global variable            
 
                     # if the name is in the recognized set
-                    if name in names_set:
-                        #split the name up
-                        firstname, lastname = name.split()
-
-                        # Get the employeeID
+                    if name in names_set:                        
+                        firstname, lastname = name.split() # split the name up
                         allowedDevices = get_devices(firstname, lastname) # Get Allowed Devices
                         
                         #print(allowedDevices) #Debug
 
-                        if int(buttons[globalbtn]) in allowedDevices:
-                            # print(f'{int(buttons[globalbtn])} is in allowedDevices') # For Debug                   
+                        if int(buttons[globalbtn]) in allowedDevices:                
                             toggle_device(globalbtn)  # Toggle Device
-                            set_global_toggle() # Modifying the global variable
+                            set_global_toggle()       # Modifying the global variable
                         else:                            
                             print(f'{int(buttons[globalbtn])} is not in allowedDevices') 
                         
@@ -163,10 +151,9 @@ def decodeQRCode(image):
             if int(buttons[globalbtn]) == 3 and barcodeData == "AllAccess": 
                 firstname = 'QR Code'
                 lastname = 'Activation'
-                toggle_device(globalbtn) # Toggle Device
-                set_global_toggle() # Modifying the global variable 
-                device, image_url = setAudittrail(globalbtn, firstname, lastname)  # Set Audittrail
-            
+                toggle_device(globalbtn)    # Toggle Device
+                set_global_toggle()         # Modifying the global variable 
+                device, image_url = setAudittrail(globalbtn, firstname, lastname)  # Set Audittrail            
             
     return image
 
@@ -174,13 +161,12 @@ def decodeQRCode(image):
 def toggle_device(button):
     
     # Concatenate the base URL with the specific endpoint for HTTP Requests
-    endpoint = buttons[button]                  # Value to be pulled from DB
-    url = f"{base_url}{endpoint}"
+    endpoint = buttons[button]      # Value to be pulled from DB
+    url = f"{base_url}{endpoint}"   # Concatenate the base URL with the specific endpoint for HTTP Requests
     
     #print(f"Button# {buttons[button]} on GPIO{button.pin.number} pressed") # For Debug
-
-     # Send a GET request with authentication to the specified URL
-    response = session.get(url)
+    
+    response = session.get(url) # Send a GET request with authentication to the specified URL
 
     # Check the response
     if response.status_code == 200:
@@ -193,7 +179,6 @@ def checkForKnownFace():
 
     # Check if the name is not 'Unknown' 
     if name != 'Unknown':  
-        #print("Access Granted to ", name)  # For Debug
         names_set.add(name)    
     else:                
         print("Access Denied")       
@@ -208,17 +193,13 @@ def security_type_2():
     checkForKnownFace() 
    
     # if the name is in the recognized set
-    if name in names_set:
-         #split the name up
-        firstname, lastname = name.split()
-
-        # Get the employeeID
-        allowedDevices = get_devices(firstname, lastname)
+    if name in names_set:        
+        firstname, lastname = name.split() # split the name up
+        allowedDevices = get_devices(firstname, lastname) # Get Allowed Devices
 
         # print(', '.join(allowedDevices))  # For Debug
 
-        if int(buttons[globalbtn]) in allowedDevices:
-            # print(f'{int(buttons[globalbtn])} is in allowedDevices') # For Debug                   
+        if int(buttons[globalbtn]) in allowedDevices:                
             toggle_device(globalbtn)  
         else:                            
             print(f'{int(buttons[globalbtn])} is not in allowedDevices') 
@@ -238,21 +219,21 @@ def security_type_4():
     if name in names_set:        
         firstname, lastname = name.split() #split the name up  
 
-        allowedDevices = get_devices(firstname, lastname) # Get the employeeID
+        allowedDevices = get_devices(firstname, lastname) # Get the allowedDevices
 
         if int(buttons[globalbtn]) in allowedDevices:
             # print(f'{int(buttons[globalbtn])} is in allowedDevices') # For Debug                   
             
              # Concatenate the base URL with the specific endpoint for HTTP Requests
-            endpoint = buttons[button]                  # Value to be pulled from DB
-            url = f"{base_url}{endpoint}"
+            endpoint = buttons[button]      # Value to be pulled from DB
+            url = f"{base_url}{endpoint}"   # Concatenate the base URL with the specific endpoint for HTTP Requests
         
             #print(f"Button# {buttons[button]} on GPIO{button.pin.number} pressed")  # For Debug
 
-            # Send a GET request with authentication to the specified URL
-            response = session.get(url)
+            response = session.get(url) # Send a GET request with authentication to the specified URL
 
             # print(', '.join(allowedDevices)) # For Debug
+
             device, image_url = setAudittrail(globalbtn, firstname, lastname)
 
             # Check the response
@@ -267,11 +248,8 @@ def security_type_5():
     checkForKnownFace() 
     # if the name is in the recognized set
     if name in names_set:        
-        #split the name up
-        firstname, lastname = name.split()
-
-        # Get the employeeID
-        allowedDevices = get_devices(firstname, lastname)
+        firstname, lastname = name.split()  #s plit the name up
+        allowedDevices = get_devices(firstname, lastname)  # Get the allowedDevices
 
         # print(', '.join(allowedDevices))  # For Debug
 
@@ -284,40 +262,32 @@ def security_type_5():
             print(f'{int(buttons[globalbtn])} is not in allowedDevices')        
 
 
-def setAudittrail(button, firstname, lastname):
-    # Get the current date and time
-    now = datetime.now()
+def setAudittrail(button, firstname, lastname):    
+    now = datetime.now()                                         # Get the current date and time  
+    formatted_date_time = now.strftime("%d%m%Y_%H%M%S")          # Format the date and time
+    formatted_date_time_DB = now.strftime("%d/%m/%Y %H:%M:%S")   # Format the date and time   
 
-    # Format the date and time
-    formatted_date_time = now.strftime("%d%m%Y_%H%M%S")
-    formatted_date_time_DB = now.strftime("%d/%m/%Y %H:%M:%S")
-
-    # Use the formatted date and time in a file name
-    image_name = f'{firstname}_{lastname}_{formatted_date_time}'
+    image_name = f'{firstname}_{lastname}_{formatted_date_time}' # Use the formatted date and time in a file name
 
     cv2.imwrite(f'./images/access/{image_name}.jpg', original_frame) # Save the image
 
     device = buttons[button] # Setting Devive to Activate
     image_url = store_file(f'./images/access/{image_name}.jpg') # Image URL to send
     
-    # Get the employeeID
-    employeeID = get_id(firstname, lastname)
+    employeeID = get_id(firstname, lastname) # Get the employeeID
    
-    # Print the employeeID
-    print('employeeID: ', employeeID)    
-    push_db(employeeID, device, firstname, lastname, image_url, formatted_date_time_DB, f'./{image_name}.jpg')
-    
-    os.remove(f'./images/access/{image_name}.jpg') # Delete Local Image 
+    print('employeeID: ', employeeID)  # Print the employeeID   
+    push_db(employeeID, device, firstname, lastname, image_url, formatted_date_time_DB, f'./{image_name}.jpg') # Push to DB
 
-    # Return the values
-    return device, image_url
+    os.remove(f'./images/access/{image_name}.jpg') # Delete Local Image 
+    
+    return device, image_url # Return the values
 
 # Define action for when button is press
-def device_interaction(button):
-    # set global variable
-    set_globalbtn(button)
+def device_interaction(button):    
+    set_globalbtn(button)# set global variable
 
-    print('globalbtn: ', buttons[globalbtn])   
+    # print('globalbtn: ', buttons[globalbtn])   # Debug 
     
     # Set function name to call based on button value
     securityCheck = {
@@ -331,17 +301,18 @@ def device_interaction(button):
     # call the function associated with the button value
     securityCheck.get(int(buttons[button]) , lambda: "Invalid button")()
 
+# Function to send HTTP request to the specified URL
+# sends request to Telegram Bot asking for access
 def request_access(device, firstname, lastname, image_url):
-    # Concatenate the base URL with the specific endpoint for HTTP Requests  
     access_point = 'telegram'                  # Value to be pulled from DB
-    url_access = f"{base_url}{access_point}"
+    url_access = f"{base_url}{access_point}"   # Concatenate the base URL with the specific endpoint for HTTP Requests
 
-    #print(url_access)
-
+    # Set the headers for the HTTP request
     headers = {
         'Content-Type': 'application/json',
     }
 
+    # Set the parameters for the HTTP request
     params = {
         'device': device,
         'firstname': firstname,
@@ -349,10 +320,8 @@ def request_access(device, firstname, lastname, image_url):
         'image': image_url
     }
 
-    #response = session.get(url)
-
+    # Send a GET request with authentication to the specified URL
     response = session.get(url_access, params=params, headers=headers)
-
 
     # Check the response
     if response.status_code == 200:
@@ -360,37 +329,24 @@ def request_access(device, firstname, lastname, image_url):
     else:
         print(f"failed")
 
-    #delete_file(url_access) # Delete Local Image
+# Function to delete a file from the Firebase Storage bucket
+def delete_file(file_path):    
+    blob = bucket.blob(file_path) # Create a reference to the file    
+    blob.delete()                 # Delete the file       
 
-def delete_file(file_path):
-    # Create a reference to the file
-    blob = bucket.blob(file_path)
-
-    # Delete the file
-    blob.delete()       
-
+# Function to store a file in the Firebase Storage bucket
 def store_file(fileLoc):
-    filename=os.path.basename(fileLoc)
+    filename=os.path.basename(fileLoc)       # Get the file name from the file path    
+    blob = bucket.blob('access/' + filename) # Create a reference to the file in the bucket
+    outfile=fileLoc                          # Set the file path for the file to be uploaded
+    blob.upload_from_filename(outfile)       # Upload the file to the bucket   
+    blob.make_public()                       # Make the blob publicly readable    
+    file_url = blob.public_url               # Get the URL of the file
+    return file_url # Return the URL of the file
 
-    # Store File in FB Bucket
-    #blob = bucket.blob(filename)
-    # Include the folder name in the blob name
-    blob = bucket.blob('access/' + filename)
-    outfile=fileLoc
-    blob.upload_from_filename(outfile)
-
-    # Make the blob publicly readable
-    blob.make_public()
-
-    # Get the URL of the file
-    file_url = blob.public_url
-
-    return file_url
-
-
+# Function to push data to the Firebase Realtime Database
 def push_db(employeeID, device, firstname, lastname, image_url, time, fileLoc):
-
-  filename=os.path.basename(fileLoc)
+  filename=os.path.basename(fileLoc)        # Get the file name from the file path   
 
   # Push file reference to image in Realtime DB
   audittrail_ref.push({
@@ -402,11 +358,12 @@ def push_db(employeeID, device, firstname, lastname, image_url, time, fileLoc):
     'timestamp': time}
   )
 
+# Function to get the employeeID from the Firebase Realtime Database
 def get_id(firstname, lastname):
     # Query the database for a document with the specified fullName
     query = employees_ref.order_by_child('fullName').equal_to(firstname + ' ' + lastname)
     
-    snapshot = query.get()    
+    snapshot = query.get()     # Get the query results
     
     if snapshot:                              # Check if the query returned any results
         doc = next(iter(snapshot.items()))    # Get the first document from the query results
@@ -416,6 +373,7 @@ def get_id(firstname, lastname):
         print(f'No employeeID found for "{firstname} {lastname}"')
         return 'Unknown'
 
+# Function to get the allowedDevices from the Firebase Realtime Database
 def get_devices(firstname, lastname):
     # Query the database for a document with the specified fullName
     query = employees_ref.order_by_child('fullName').equal_to(firstname + ' ' + lastname)
@@ -425,11 +383,12 @@ def get_devices(firstname, lastname):
     if snapshot:                              # Check if the query returned any results
         doc = next(iter(snapshot.items()))    # Get the first document from the query results
         data = doc[1]                         # Get the document's data       
-        return data['devices']             # Return the employeeID
+        return data['devices']                # Return the employeeID
     else:
         print(f'No devices found for "{firstname} {lastname}"')
         return None
 
+# Function to get the accessKey from the Firebase Realtime Database
 def get_accesskey(firstname, lastname):
    # Query the database for a document with the specified fullName
     query = employees_ref.order_by_child('fullName').equal_to(firstname + ' ' + lastname)
@@ -439,7 +398,7 @@ def get_accesskey(firstname, lastname):
     if snapshot:                              # Check if the query returned any results
         doc = next(iter(snapshot.items()))    # Get the first document from the query results
         data = doc[1]                         # Get the document's data       
-        return data['accessKey']             # Return the employeeID
+        return data['accessKey']              # Return the employeeID
     else:
         print(f'No accessKey found for "{firstname} {lastname}"')
         return 'Unknown'
@@ -469,7 +428,6 @@ try:
                 im=decodeQRCode(frame) 
                 
             original_frame = frame.copy()
-            #original_frame = frame.
             # Display rectangle around detected face            
             cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 0, 200), 4)                                   
 
@@ -478,7 +436,7 @@ try:
         cv2.moveWindow('Facial Recognition and QR Code Reading', window_x - 200, window_y - 200)
 
         key = cv2.waitKey(1)
-        if key == 27:
+        if key == 27: # Press ESC to exit
             break
 
     cap.release()
@@ -486,5 +444,3 @@ try:
 
 except KeyboardInterrupt:
     pass
-
-#finally:
