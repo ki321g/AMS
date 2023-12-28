@@ -225,10 +225,11 @@ def security_type_4():
             # print(f'{int(buttons[globalbtn])} is in allowedDevices') # For Debug                   
             
              # Concatenate the base URL with the specific endpoint for HTTP Requests
-            endpoint = buttons[button]      # Value to be pulled from DB
+            endpoint = buttons[globalbtn]      # Value to be pulled from DB
             url = f"{base_url}{endpoint}"   # Concatenate the base URL with the specific endpoint for HTTP Requests
         
-            #print(f"Button# {buttons[button]} on GPIO{button.pin.number} pressed")  # For Debug
+            # print(f"base_url- {base_url} : endpoint- {endpoint} : url- {url}")  # For Debug
+            # print(f"Button# {buttons[globalbtn]} on GPIO{button.pin.number} pressed")  # For Debug
 
             response = session.get(url) # Send a GET request with authentication to the specified URL
 
@@ -238,7 +239,7 @@ def security_type_4():
 
             # Check the response
             if response.status_code == 200:
-                print(f"Request successful! Toggled Device#{buttons[button]}")
+                print(f"Request successful! Toggled Device#{buttons[globalbtn]}")
             else:
                 print(f"Request failed with status code {response.status_code}")  
         else:                            
