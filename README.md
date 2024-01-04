@@ -28,17 +28,18 @@ This system optimizes energy consumption by selectively powering on devices base
 
 Additionally, AMS implements secure login protocols for devices, requiring facial recognition and/or QR code authentication, thereby enhancing security measures within the controlled environment. By providing detailed access control and authentication mechanisms, AMS ensures heightened security and restricted access while optimizing resource utilization.
  
-
-<!-- 
-| Developed With| Templated With |  Styled With | 
-| :----:        |    :----:   |  :----:   |
-| <img src="readme/images/Expressjs.svg" style="height: 200px;">       | <img src="readme/images/handlebars_logo.png">       |  <img src="readme/images/bulma-logo.png">       |
--->
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
  
 <!-- LIVE DEMO -->
 ## Live Demo
 Link: TBD <!-- [https://weathertopv2kg.glitch.me/](https://weathertopv2kg.glitch.me/) -->
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- VIDEO -->
+## Video Walk Through
+<a href="https://youtu.be/SJLO5kULhWg" target="_blank">
+ <img src="Assets/youtube.svg" alt="Watch the video"/>
+</a>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Installation
