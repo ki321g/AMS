@@ -153,7 +153,9 @@ def decodeQRCode(image):
                 lastname = 'Activation'
                 toggle_device(globalbtn)    # Toggle Device
                 set_global_toggle()         # Modifying the global variable 
-                device, image_url = setAudittrail(globalbtn, firstname, lastname)  # Set Audittrail            
+                device, image_url = setAudittrail(globalbtn, firstname, lastname)  # Set Audittrail       
+            elif int(buttons[globalbtn]) == 3 and barcodeData != "AllAccess":
+                print("Access Denied")      
             
     return image
 
@@ -257,7 +259,8 @@ def security_type_5():
         if int(buttons[globalbtn]) in allowedDevices:
             # print(f'{int(buttons[globalbtn])} is in allowedDevices') # For Debug                   
             device, image_url = setAudittrail(globalbtn, firstname, lastname) 
-       
+            # print(f'{device} is device')  
+            # print(f'{image_url} is image_url')  
             request_access(device, firstname, lastname, image_url) 
         else:                            
             print(f'{int(buttons[globalbtn])} is not in allowedDevices')        
@@ -312,6 +315,10 @@ def request_access(device, firstname, lastname, image_url):
     headers = {
         'Content-Type': 'application/json',
     }
+
+    # print(f'Name: {firstname} {lastname} ')  
+    # print(f'{device} is device')  
+    # print(f'{image_url} is image_url')  
 
     # Set the parameters for the HTTP request
     params = {
