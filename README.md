@@ -65,6 +65,7 @@ The following resources were used in the devlopment of this project:
 6. [node-red-http-endpoint-examples](https://github.com/rozek/node-red-http-endpoint-examples)
 7. [Node-Red HTTP Request Node for Beginners](https://stevesnoderedguide.com/node-red-http-request-node-beginners)
 8. [Using a push button with Raspberry Pi GPIO](https://raspberrypihq.com/use-a-push-button-with-raspberry-pi-gpio/)
+9. [The Easiest Free Way To Do Home Assistant Remote Access!](https://youtu.be/xXAwT9N-7Hw?si=7lqC9qIAQdTMgROb)
 
 <!-- Research -->
 ## Research
