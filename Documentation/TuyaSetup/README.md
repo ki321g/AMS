@@ -39,7 +39,7 @@ Follow these steps to configure the Tuya IoT Platform:
 1. Log in to the **[Tuya IoT Platform](https://iot.tuya.com/)**.
 2. In the left navigation bar, select **Cloud > Development**.
 
-      <img align="center" width="40%" src="../Assets/TuyaSetup/cloud_development.png" style="max-width: 95%;margin:10px 20px"> 
+      <img align="center" width="40%" src=".././Assets/TuyaSetup/cloud_development.png" style="max-width: 95%;margin:10px 20px"> 
 
 3. On the page that appears, select **Create Cloud Project**.
    
