@@ -60,6 +60,10 @@ If you cant find the Palette Manager you can follow the instructions on the **[N
 ### Step 5: Install HA Addons
 
 1. Follow the instructions on the [Cloudflared installation page](https://github.com/brenner-tobias/ha-addons) to install Cloudflared on your Raspberry Pi.
+   
+Click the following link to find a video tutorial on how to setup the cloudflare tunnel **[The Easiest Free Way To Do Home Assistant Remote Access!](https://youtu.be/xXAwT9N-7Hw?si=kLx-CaiaY-fP2oOH)**
+
+**Note:** I used a paid domain name as [Freenom](https://www.freenom.com/en/index.html) wasn't working correctly for me
 
 ### Step 6: Install Cloudflared
 
@@ -71,7 +75,7 @@ If you cant find the Palette Manager you can follow the instructions on the **[N
 
 ## Usage
 
-After installation, you can access your Home Assistant instance by navigating to `http://<your-raspberry-pi-ip-address>:8123` in your web browser.
+After installation, you can access your Home Assistant instance by navigating to `http://<your-raspberry-pi-ip-address>:8123` or if you have setup cloudflare tunnel `http://<your-url>` in your web browser.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
