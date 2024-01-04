@@ -37,16 +37,19 @@ Additionally, AMS implements secure login protocols for devices, requiring facia
 </a>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!--
 ### Setup Steps
 TBD - Systsem is not designed yet
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+-->
 
 ## Installation Instructions
 
 - **Tuya Setup**: Instructions in `TuyaSetup` directory.
 - **Raspberry Pi 4 - Home Assistant**: Instructions in `HomeAssistant` directory.
 - **Raspberry Pi 5 - Facial Recognition**: Instructions in `FacialRecognition` directory.
+- **Website**: Instructions in `Website` directory.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
