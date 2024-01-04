@@ -10,7 +10,7 @@
   <summary>Table of Contents</summary>
   <ol>
     <li><a href="#facial-recognition">Facial Recognition</a></li>
-    <li><a href="#raspberry-pi-setup">Raspberry Pi Setup</a></li>
+    <li><a href="#prerequisite-raspberry-pi-setup">Raspberry Pi Setup</a></li>
     <li><a href="#installation">Installation</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
@@ -30,8 +30,8 @@ I used the Raspberry Pi's GPIO pins to connect a breadboard with 5 buttons one f
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- Raspberry Pi Setup -->
-### Raspberry Pi Setup
+<!-- Prerequisite Raspberry Pi Setup -->
+### Prerequisite Raspberry Pi Setup
 
 To import all the relevant libraries into your Python script on your Raspberry Pi, you need to install them first. Below you will find a list of the commands I used in my terminal to install these libraries. 
 
