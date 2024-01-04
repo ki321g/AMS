@@ -12,6 +12,7 @@
     <li><a href="#about-the-project">About The Project</a></li>
     <li><a href="#video-walk-through">Video Walk Through</a></li>   
     <li><a href="#setup-steps">Setup Steps</a></li>
+    <li><a href="#installation-instructions">Installation Instructions</a></li>
     <li><a href="#references">References</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
@@ -41,11 +42,20 @@ TBD - Systsem is not designed yet
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## Installation Instructions
+
+- **Tuya Setup**: Instructions in `TuyaSetup` directory.
+- **Raspberry Pi 4 - Home Assistant**: Instructions in `HomeAssistant` directory.
+- **Raspberry Pi 5 - Facial Recognition**: Instructions in `FacialRecognition` directory.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- References -->
 ## References
 The following resources were used in the devlopment of this project:
 
 1. **[Home Assistant Tuya Integration instructions](https://www.home-assistant.io/integrations/tuya/)** 
+
 
 <!-- CONTACT -->
 ## Contact
