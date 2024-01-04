@@ -10,7 +10,9 @@
   <summary>Table of Contents</summary>
   <ol>
     <li><a href="#facial-recognition">Facial Recognition</a></li>
-    <li><a href="#prerequisite-raspberry-pi-setup">Raspberry Pi Setup</a></li>
+<!-- Prerequisite Raspberry Pi Setup -->
+    <li><a href="#raspberry-pi-breadboard-setup">Raspberry Pi Setup</a></li>
+    <li><a href="#prerequisite-raspberry-pi-setup">Prerequisite Raspberry Pi Setup</a></li>
     <li><a href="#installation">Installation</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
@@ -28,6 +30,41 @@ By using these tools together on a Raspberry Pi, i developed a compact, cost-eff
 
 I used the Raspberry Pi's GPIO pins to connect a breadboard with 5 buttons one for each of the devices i am settgin up on my system.
 
+I spent more than three weeks trying different things to get facial recognition working on the Raspberry Pi. Watch hundreds of videos and following hundreds of tutorials.
+
+In the end i followed a tutorial from **[@Pysource](https://www.youtube.com/@pysource-com)** and imported his SimpleFacerec (Custom face recognition library) from his tutorial into my application. 
+
+Youtube Tutorial: **[https://youtu.be/5yPeKQzCPdI?si=8T0zXpaAZNMzzHJ4](https://youtu.be/5yPeKQzCPdI?si=8T0zXpaAZNMzzHJ4)**
+Blog and Notebook: **[https://pysource.com/2021/08/16/face-recognition-in-real-time-with-opencv-and-python/](https://pysource.com/2021/08/16/face-recognition-in-real-time-with-opencv-and-python/)**
+
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- Prerequisite Raspberry Pi Setup -->
+### Raspberry Pi Breadboard Setup
+
+In order to get teh application to turn on the devices in home assistant and execute parts of the script you need to setup a breadboard with five buttons.
+
+**Breadboard Image**
+
+<img align="center" width="90%" src="../Assets/FacialRecognition/breadboard.jpg" style="max-width: 95%;margin:10px 20px"> 
+
+**Breadboard Setup**
+
+<img align="center" width="90%" src="../Assets/FacialRecognition/breadboard-setup.png" style="max-width: 95%;margin:10px 20px"> 
+
+**Breadboard Setup Tutorial**
+
+I found a two videos on setting up buttons which i watched many times while i was setting it up to ensure i was doing it right. If you have no experience with breadboards follow these videos to setup.your breadboard
+
+Both are from [@m.heidenreich](https://www.youtube.com/@m.heidenreich)
+
+1. **[How to Use Push Buttons With Raspberry Pi GPIO (with Python gpiozero)](https://youtu.be/YICzRCAY73Y?si=2E7IPdAIbPjJkN2j)** 
+2. **[How to Use Buttons with Raspberry Pi (Breadboard Tutorial, LED Control)](https://youtu.be/llE5llhJsoE?si=Dlw-gbcZeLAcMezy)**
+
+
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- Prerequisite Raspberry Pi Setup -->
@@ -39,7 +76,7 @@ I had to run some of the command with **--break-system-packages** added to the e
 
 Follow these steps to set up and run the website:
 
-1. **1.	Update & Upgrade Raspberry Pi**: First, you need to update & upgrade your Pi:
+1. **Update & Upgrade Raspberry Pi**: First, you need to update & upgrade your Pi:
 
 ```bash
 sudo apt update -y && sudo apt upgrade -y
@@ -111,6 +148,36 @@ pip3 install cvzone
 
 <!-- Installation -->
 ### Installation
+
+Follow these steps to set up and run the website:
+
+1. **Clone the repository**: First, you need to clone the repository from GitHub. You can do this by running the following command in your terminal:
+
+```bash
+git clone https://github.com/ki321g/AMS.git
+``` 
+
+2. **Navigate to the project directory**: After cloning the repository, navigate to the project directory by running the following command:
+
+```bash
+cd AMS\FacialRecognition
+``` 
+
+3. **Run Application**: Run the following command in the terminal to start the application:
+
+```bash
+python3 main.py
+``` 
+4. **Test Application**: If you have everything setup test your application by pressing one of your breadboard buttons:
+
+    **BTN#1** uses Facial Recognition & QR Code    
+    **BTN#2** uses Facial Recognition only     
+    **BTN#3** uses QR Code only    
+    **BTN#4** uses Facial Recognition only     
+    **BTN#5** uses Facial Recognition and sends a requested to Telegram for access approval
+      
+  
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
