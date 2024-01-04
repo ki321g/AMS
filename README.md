@@ -29,11 +29,6 @@ This system optimizes energy consumption by selectively powering on devices base
 Additionally, AMS implements secure login protocols for devices, requiring facial recognition and/or QR code authentication, thereby enhancing security measures within the controlled environment. By providing detailed access control and authentication mechanisms, AMS ensures heightened security and restricted access while optimizing resource utilization.
  
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
- 
-<!-- LIVE DEMO -->
-## Live Demo
-Link: TBD <!-- [https://weathertopv2kg.glitch.me/](https://weathertopv2kg.glitch.me/) -->
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- VIDEO -->
 ## Video Walk Through
@@ -44,21 +39,7 @@ Link: TBD <!-- [https://weathertopv2kg.glitch.me/](https://weathertopv2kg.glitch
 
 ### Installation
 TBD - Systsem is not designed yet
-<!-- To get a copy of the project running on your system, navigate to the project directory in a command prompt/shell and run the following:
-  ```
-    npm install
-  ```
-This will install all dependencies in package-lock.json
 
-After dependency installation has completed run
-  ```
-  npm run start
-  ```
-This will load the application and start a local server on port 4000.
-  ```
-  http://localhost:9000/
-  ``` 
--->
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- References -->
