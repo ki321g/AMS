@@ -11,7 +11,7 @@
   <ol>
     <li><a href="#facial-recognition">Facial Recognition</a></li>
 <!-- Prerequisite Raspberry Pi Setup -->
-    <li><a href="#raspberry-pi-breadboard-setup">Raspberry Pi Setup</a></li>
+    <li><a href="#raspberry-pi-breadboard-setup">Raspberry Pi Breadboard Setup</a></li>
     <li><a href="#prerequisite-raspberry-pi-setup">Prerequisite Raspberry Pi Setup</a></li>
     <li><a href="#installation">Installation</a></li>
     <li><a href="#contact">Contact</a></li>
