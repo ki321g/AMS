@@ -35,6 +35,7 @@ I spent more than three weeks trying different things to get facial recognition 
 In the end i followed a tutorial from **[@Pysource](https://www.youtube.com/@pysource-com)** and imported his SimpleFacerec (Custom face recognition library) from his tutorial into my application. 
 
 Youtube Tutorial: **[https://youtu.be/5yPeKQzCPdI?si=8T0zXpaAZNMzzHJ4](https://youtu.be/5yPeKQzCPdI?si=8T0zXpaAZNMzzHJ4)**
+
 Blog and Notebook: **[https://pysource.com/2021/08/16/face-recognition-in-real-time-with-opencv-and-python/](https://pysource.com/2021/08/16/face-recognition-in-real-time-with-opencv-and-python/)**
 
 
