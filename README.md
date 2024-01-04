@@ -11,7 +11,7 @@
   <ol>
     <li><a href="#about-the-project">About The Project</a></li>
     <li><a href="#video-walk-through">Video Walk Through</a></li>   
-    <li><a href="#installation">Installation</a></li>
+    <li><a href="#setup-steps">Setup Steps</a></li>
     <li><a href="#references">References</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
@@ -36,7 +36,7 @@ Additionally, AMS implements secure login protocols for devices, requiring facia
 </a>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Installation
+### Setup Steps
 TBD - Systsem is not designed yet
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
