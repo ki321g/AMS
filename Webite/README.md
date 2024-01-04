@@ -26,8 +26,11 @@ We assume you have Node.js and Git installed on your system, follow the process 
 ## Demo Web Application 
 Visit the following URL to see a running demo of our application.
 
-**URL**:
-[https://a-s-m.glitch.me/](https://a-s-m.glitch.me/)
+**URL**: [https://a-s-m.glitch.me/](https://a-s-m.glitch.me/)
+
+<a href="https://a-s-m.glitch.me/" target="_blank">
+ <img src="Assets/website.png" alt="Watch the video"/>
+</a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
