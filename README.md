@@ -48,8 +48,8 @@ TBD - Systsem is not designed yet
 
 - **Tuya Setup**: Instructions in `TuyaSetup` directory.
 - **Raspberry Pi 4 - Home Assistant**: Instructions in `Documentation/HomeAssistant` directory.
-- **Raspberry Pi 5 - Facial Recognition**: Instructions in `Documentation/FacialRecognition` directory.
-- **Website**: Instructions in `Documentation/Website` directory.
+- **Raspberry Pi 5 - Facial Recognition**: Instructions in `FacialRecognition` directory.
+- **Website**: Instructions in `Website` directory.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
