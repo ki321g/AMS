@@ -1,0 +1,374 @@
+[
+  {
+      "id": "e5fa18f565fe4dcb",
+      "type": "tab",
+      "label": "Device",
+      "disabled": false,
+      "info": "",
+      "env": []
+  },
+  {
+      "id": "44c05598d1e4937f",
+      "type": "comment",
+      "z": "e5fa18f565fe4dcb",
+      "name": "HTTP Request to Node-Red which TOGGLES device on HomeAssistant",
+      "info": "",
+      "x": 270,
+      "y": 40,
+      "wires": []
+  },
+  {
+      "id": "3259f3fdc0c2d631",
+      "type": "template",
+      "z": "e5fa18f565fe4dcb",
+      "name": "page",
+      "field": "payload",
+      "fieldType": "msg",
+      "format": "html",
+      "syntax": "mustache",
+      "template": "<html>\n    <head></head>\n    <body>\n        <h1>Smart Plug #1 Toggled</h1>\n        <div>msg.payload</div>\n    </body>\n</html>",
+      "x": 270,
+      "y": 180,
+      "wires": [
+          [
+              "283dc3cf7641c553"
+          ]
+      ]
+  },
+  {
+      "id": "40ebb54451044c67",
+      "type": "http in",
+      "z": "e5fa18f565fe4dcb",
+      "name": "",
+      "url": "1",
+      "method": "get",
+      "upload": false,
+      "swaggerDoc": "",
+      "x": 180,
+      "y": 120,
+      "wires": [
+          [
+              "61ca30bcdf52d8a5",
+              "3259f3fdc0c2d631"
+          ]
+      ]
+  },
+  {
+      "id": "61ca30bcdf52d8a5",
+      "type": "api-call-service",
+      "z": "e5fa18f565fe4dcb",
+      "name": "",
+      "server": "35e87b1c.c2e7e4",
+      "version": 5,
+      "debugenabled": false,
+      "domain": "switch",
+      "service": "toggle",
+      "areaId": [],
+      "deviceId": [],
+      "entityId": [
+          "switch.smart_plug_1"
+      ],
+      "data": "",
+      "dataType": "jsonata",
+      "mergeContext": "",
+      "mustacheAltTags": false,
+      "outputProperties": [],
+      "queue": "none",
+      "x": 410,
+      "y": 120,
+      "wires": [
+          []
+      ]
+  },
+  {
+      "id": "283dc3cf7641c553",
+      "type": "http response",
+      "z": "e5fa18f565fe4dcb",
+      "name": "",
+      "statusCode": "200",
+      "headers": {},
+      "x": 400,
+      "y": 180,
+      "wires": []
+  },
+  {
+      "id": "5cbd7fa7bd09fd5a",
+      "type": "comment",
+      "z": "e5fa18f565fe4dcb",
+      "name": "Device # 1",
+      "info": "",
+      "x": 120,
+      "y": 80,
+      "wires": []
+  },
+  {
+      "id": "a60297dd42a51e8a",
+      "type": "comment",
+      "z": "e5fa18f565fe4dcb",
+      "name": "Device # 2",
+      "info": "",
+      "x": 600,
+      "y": 80,
+      "wires": []
+  },
+  {
+      "id": "f2c6b928e479776c",
+      "type": "comment",
+      "z": "e5fa18f565fe4dcb",
+      "name": "Device # 3",
+      "info": "",
+      "x": 1080,
+      "y": 80,
+      "wires": []
+  },
+  {
+      "id": "c93d0115309b86c2",
+      "type": "comment",
+      "z": "e5fa18f565fe4dcb",
+      "name": "Device # 4",
+      "info": "",
+      "x": 120,
+      "y": 240,
+      "wires": []
+  },
+  {
+      "id": "95dcb9f7aeb645bf",
+      "type": "comment",
+      "z": "e5fa18f565fe4dcb",
+      "name": "Device # 5",
+      "info": "",
+      "x": 600,
+      "y": 240,
+      "wires": []
+  },
+  {
+      "id": "b03cd634e41fb013",
+      "type": "api-call-service",
+      "z": "e5fa18f565fe4dcb",
+      "name": "",
+      "server": "35e87b1c.c2e7e4",
+      "version": 5,
+      "debugenabled": false,
+      "domain": "switch",
+      "service": "toggle",
+      "areaId": [],
+      "deviceId": [],
+      "entityId": [
+          "switch.smart_plug_2"
+      ],
+      "data": "",
+      "dataType": "jsonata",
+      "mergeContext": "",
+      "mustacheAltTags": false,
+      "outputProperties": [],
+      "queue": "none",
+      "x": 890,
+      "y": 120,
+      "wires": [
+          []
+      ]
+  },
+  {
+      "id": "1a9a74caf78d691c",
+      "type": "http in",
+      "z": "e5fa18f565fe4dcb",
+      "name": "",
+      "url": "2",
+      "method": "get",
+      "upload": false,
+      "swaggerDoc": "",
+      "x": 660,
+      "y": 120,
+      "wires": [
+          [
+              "b03cd634e41fb013",
+              "05fceba37e0f36fe"
+          ]
+      ]
+  },
+  {
+      "id": "f5dd8a2195e32fba",
+      "type": "http in",
+      "z": "e5fa18f565fe4dcb",
+      "name": "",
+      "url": "3",
+      "method": "get",
+      "upload": false,
+      "swaggerDoc": "",
+      "x": 1160,
+      "y": 120,
+      "wires": [
+          [
+              "855992bdb5e26f03",
+              "1be2af1fa13d2701"
+          ]
+      ]
+  },
+  {
+      "id": "1be2af1fa13d2701",
+      "type": "api-call-service",
+      "z": "e5fa18f565fe4dcb",
+      "name": "",
+      "server": "35e87b1c.c2e7e4",
+      "version": 5,
+      "debugenabled": false,
+      "domain": "switch",
+      "service": "toggle",
+      "areaId": [],
+      "deviceId": [],
+      "entityId": [
+          "switch.smart_plug_3"
+      ],
+      "data": "",
+      "dataType": "jsonata",
+      "mergeContext": "",
+      "mustacheAltTags": false,
+      "outputProperties": [],
+      "queue": "none",
+      "x": 1390,
+      "y": 120,
+      "wires": [
+          []
+      ]
+  },
+  {
+      "id": "855992bdb5e26f03",
+      "type": "http response",
+      "z": "e5fa18f565fe4dcb",
+      "name": "",
+      "statusCode": "200",
+      "headers": {},
+      "x": 1380,
+      "y": 180,
+      "wires": []
+  },
+  {
+      "id": "833a5114a923086d",
+      "type": "http in",
+      "z": "e5fa18f565fe4dcb",
+      "name": "",
+      "url": "4",
+      "method": "get",
+      "upload": false,
+      "swaggerDoc": "",
+      "x": 180,
+      "y": 280,
+      "wires": [
+          [
+              "1e3cacdc2d216298",
+              "2f44e3e4d77194f9"
+          ]
+      ]
+  },
+  {
+      "id": "2f44e3e4d77194f9",
+      "type": "api-call-service",
+      "z": "e5fa18f565fe4dcb",
+      "name": "",
+      "server": "35e87b1c.c2e7e4",
+      "version": 5,
+      "debugenabled": false,
+      "domain": "switch",
+      "service": "toggle",
+      "areaId": [],
+      "deviceId": [],
+      "entityId": [
+          "switch.smart_plug_4"
+      ],
+      "data": "",
+      "dataType": "jsonata",
+      "mergeContext": "",
+      "mustacheAltTags": false,
+      "outputProperties": [],
+      "queue": "none",
+      "x": 410,
+      "y": 280,
+      "wires": [
+          []
+      ]
+  },
+  {
+      "id": "1e3cacdc2d216298",
+      "type": "http response",
+      "z": "e5fa18f565fe4dcb",
+      "name": "",
+      "statusCode": "200",
+      "headers": {},
+      "x": 400,
+      "y": 340,
+      "wires": []
+  },
+  {
+      "id": "d076879a4f23f7aa",
+      "type": "http in",
+      "z": "e5fa18f565fe4dcb",
+      "name": "",
+      "url": "5",
+      "method": "get",
+      "upload": false,
+      "swaggerDoc": "",
+      "x": 660,
+      "y": 280,
+      "wires": [
+          [
+              "69dfa14f89c2b758",
+              "a6b756954c5cdac6"
+          ]
+      ]
+  },
+  {
+      "id": "a6b756954c5cdac6",
+      "type": "api-call-service",
+      "z": "e5fa18f565fe4dcb",
+      "name": "",
+      "server": "35e87b1c.c2e7e4",
+      "version": 5,
+      "debugenabled": false,
+      "domain": "switch",
+      "service": "toggle",
+      "areaId": [],
+      "deviceId": [],
+      "entityId": [
+          "switch.smart_plug_5"
+      ],
+      "data": "",
+      "dataType": "jsonata",
+      "mergeContext": "",
+      "mustacheAltTags": false,
+      "outputProperties": [],
+      "queue": "none",
+      "x": 890,
+      "y": 280,
+      "wires": [
+          []
+      ]
+  },
+  {
+      "id": "69dfa14f89c2b758",
+      "type": "http response",
+      "z": "e5fa18f565fe4dcb",
+      "name": "",
+      "statusCode": "200",
+      "headers": {},
+      "x": 880,
+      "y": 360,
+      "wires": []
+  },
+  {
+      "id": "05fceba37e0f36fe",
+      "type": "http response",
+      "z": "e5fa18f565fe4dcb",
+      "name": "",
+      "statusCode": "200",
+      "headers": {},
+      "x": 880,
+      "y": 180,
+      "wires": []
+  },
+  {
+      "id": "35e87b1c.c2e7e4",
+      "type": "server",
+      "name": "Home Assistant",
+      "addon": true
+  }
+]

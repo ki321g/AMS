@@ -1,0 +1,1086 @@
+[
+	{
+		"id": "6421f02fabe7e2d2",
+		"type": "tab",
+		"label": "Firebase",
+		"disabled": false,
+		"info": "",
+		"env": []
+	},
+	{
+		"id": "f32fced0721d883d",
+		"type": "debug",
+		"z": "6421f02fabe7e2d2",
+		"name": "debug 3",
+		"active": true,
+		"tosidebar": true,
+		"console": false,
+		"tostatus": false,
+		"complete": "payload",
+		"targetType": "msg",
+		"statusVal": "",
+		"statusType": "auto",
+		"x": 880,
+		"y": 400,
+		"wires": []
+	},
+	{
+		"id": "879f654efa5409d4",
+		"type": "firebase-get",
+		"z": "6421f02fabe7e2d2",
+		"name": "",
+		"constraint": {},
+		"database": "f96499b4cf417441",
+		"outputType": "auto",
+		"passThrough": false,
+		"path": "method",
+		"pathType": "msg",
+		"useConstraint": false,
+		"x": 870,
+		"y": 460,
+		"wires": [["f32fced0721d883d"]]
+	},
+	{
+		"id": "e8f938d066d3860a",
+		"type": "firebase-in",
+		"z": "6421f02fabe7e2d2",
+		"name": "Device#1",
+		"constraint": {},
+		"database": "f96499b4cf417441",
+		"listenerType": "child_changed",
+		"outputType": "auto",
+		"path": "devices/1",
+		"useConstraint": false,
+		"x": 120,
+		"y": 220,
+		"wires": [["e38e514c52ed68ba"]]
+	},
+	{
+		"id": "38f437722525ec2e",
+		"type": "comment",
+		"z": "6421f02fabe7e2d2",
+		"name": "Switch Devices ON/OFF",
+		"info": "",
+		"x": 650,
+		"y": 140,
+		"wires": []
+	},
+	{
+		"id": "7b62017778f5c2be",
+		"type": "firebase-in",
+		"z": "6421f02fabe7e2d2",
+		"name": "Device#2",
+		"constraint": {},
+		"database": "f96499b4cf417441",
+		"listenerType": "child_changed",
+		"outputType": "auto",
+		"path": "devices/2",
+		"useConstraint": false,
+		"x": 120,
+		"y": 320,
+		"wires": [["f086c48548f639a2"]]
+	},
+	{
+		"id": "068261d430d4a23b",
+		"type": "firebase-in",
+		"z": "6421f02fabe7e2d2",
+		"name": "Device#3",
+		"constraint": {},
+		"database": "f96499b4cf417441",
+		"listenerType": "child_changed",
+		"outputType": "auto",
+		"path": "devices/3",
+		"useConstraint": false,
+		"x": 120,
+		"y": 440,
+		"wires": [["0713f67d8dc78151"]]
+	},
+	{
+		"id": "039faae61367a1df",
+		"type": "firebase-in",
+		"z": "6421f02fabe7e2d2",
+		"name": "Device#4",
+		"constraint": {},
+		"database": "f96499b4cf417441",
+		"listenerType": "child_changed",
+		"outputType": "auto",
+		"path": "devices/4",
+		"useConstraint": false,
+		"x": 120,
+		"y": 560,
+		"wires": [["08c5b8c2c4ac9aea"]]
+	},
+	{
+		"id": "b5f2fca1f19a8843",
+		"type": "firebase-in",
+		"z": "6421f02fabe7e2d2",
+		"name": "Device#5",
+		"constraint": {},
+		"database": "f96499b4cf417441",
+		"listenerType": "child_changed",
+		"outputType": "auto",
+		"path": "devices/5",
+		"useConstraint": false,
+		"x": 120,
+		"y": 700,
+		"wires": [["2da38aff30877e30"]]
+	},
+	{
+		"id": "61b35c1835e23b75",
+		"type": "api-call-service",
+		"z": "6421f02fabe7e2d2",
+		"name": "ON ",
+		"server": "35e87b1c.c2e7e4",
+		"version": 5,
+		"debugenabled": false,
+		"domain": "switch",
+		"service": "turn_on",
+		"areaId": [],
+		"deviceId": [],
+		"entityId": ["switch.smart_plug_1"],
+		"data": "",
+		"dataType": "jsonata",
+		"mergeContext": "",
+		"mustacheAltTags": false,
+		"outputProperties": [],
+		"queue": "none",
+		"x": 610,
+		"y": 180,
+		"wires": [["879f654efa5409d4"]]
+	},
+	{
+		"id": "e38e514c52ed68ba",
+		"type": "firebase-get",
+		"z": "6421f02fabe7e2d2",
+		"name": "",
+		"constraint": {},
+		"database": "f96499b4cf417441",
+		"outputType": "auto",
+		"passThrough": false,
+		"path": "method",
+		"pathType": "msg",
+		"useConstraint": false,
+		"x": 290,
+		"y": 220,
+		"wires": [["d634a980b4446ec0"]]
+	},
+	{
+		"id": "d634a980b4446ec0",
+		"type": "switch",
+		"z": "6421f02fabe7e2d2",
+		"name": "Switch",
+		"property": "payload.devices[1].status",
+		"propertyType": "msg",
+		"rules": [
+			{
+				"t": "eq",
+				"v": "ON",
+				"vt": "str"
+			},
+			{
+				"t": "eq",
+				"v": "OFF",
+				"vt": "str"
+			}
+		],
+		"checkall": "true",
+		"repair": false,
+		"outputs": 2,
+		"x": 450,
+		"y": 220,
+		"wires": [["61b35c1835e23b75"], ["0282b6dcba4f455e"]]
+	},
+	{
+		"id": "0282b6dcba4f455e",
+		"type": "api-call-service",
+		"z": "6421f02fabe7e2d2",
+		"name": "OFF",
+		"server": "35e87b1c.c2e7e4",
+		"version": 5,
+		"debugenabled": false,
+		"domain": "switch",
+		"service": "turn_off",
+		"areaId": [],
+		"deviceId": [],
+		"entityId": ["switch.smart_plug_1"],
+		"data": "",
+		"dataType": "jsonata",
+		"mergeContext": "",
+		"mustacheAltTags": false,
+		"outputProperties": [],
+		"queue": "none",
+		"x": 610,
+		"y": 240,
+		"wires": [["879f654efa5409d4"]]
+	},
+	{
+		"id": "f086c48548f639a2",
+		"type": "firebase-get",
+		"z": "6421f02fabe7e2d2",
+		"name": "",
+		"constraint": {},
+		"database": "f96499b4cf417441",
+		"outputType": "auto",
+		"passThrough": false,
+		"path": "method",
+		"pathType": "msg",
+		"useConstraint": false,
+		"x": 290,
+		"y": 320,
+		"wires": [["8182bc899f5bb57e"]]
+	},
+	{
+		"id": "8182bc899f5bb57e",
+		"type": "switch",
+		"z": "6421f02fabe7e2d2",
+		"name": "Switch",
+		"property": "payload.devices[2].status",
+		"propertyType": "msg",
+		"rules": [
+			{
+				"t": "eq",
+				"v": "ON",
+				"vt": "str"
+			},
+			{
+				"t": "eq",
+				"v": "OFF",
+				"vt": "str"
+			}
+		],
+		"checkall": "true",
+		"repair": false,
+		"outputs": 2,
+		"x": 450,
+		"y": 320,
+		"wires": [["91b083d3324e144c"], ["4f392fd102f50512"]]
+	},
+	{
+		"id": "4f392fd102f50512",
+		"type": "api-call-service",
+		"z": "6421f02fabe7e2d2",
+		"name": "OFF",
+		"server": "35e87b1c.c2e7e4",
+		"version": 5,
+		"debugenabled": false,
+		"domain": "switch",
+		"service": "turn_off",
+		"areaId": [],
+		"deviceId": [],
+		"entityId": ["switch.smart_plug_2"],
+		"data": "",
+		"dataType": "jsonata",
+		"mergeContext": "",
+		"mustacheAltTags": false,
+		"outputProperties": [],
+		"queue": "none",
+		"x": 610,
+		"y": 360,
+		"wires": [["879f654efa5409d4"]]
+	},
+	{
+		"id": "91b083d3324e144c",
+		"type": "api-call-service",
+		"z": "6421f02fabe7e2d2",
+		"name": "ON ",
+		"server": "35e87b1c.c2e7e4",
+		"version": 5,
+		"debugenabled": false,
+		"domain": "switch",
+		"service": "turn_on",
+		"areaId": [],
+		"deviceId": [],
+		"entityId": ["switch.smart_plug_2"],
+		"data": "",
+		"dataType": "jsonata",
+		"mergeContext": "",
+		"mustacheAltTags": false,
+		"outputProperties": [],
+		"queue": "none",
+		"x": 610,
+		"y": 300,
+		"wires": [["879f654efa5409d4"]]
+	},
+	{
+		"id": "6dce3bead7112b7e",
+		"type": "api-call-service",
+		"z": "6421f02fabe7e2d2",
+		"name": "OFF",
+		"server": "35e87b1c.c2e7e4",
+		"version": 5,
+		"debugenabled": false,
+		"domain": "switch",
+		"service": "turn_off",
+		"areaId": [],
+		"deviceId": [],
+		"entityId": ["switch.smart_plug_3"],
+		"data": "",
+		"dataType": "jsonata",
+		"mergeContext": "",
+		"mustacheAltTags": false,
+		"outputProperties": [],
+		"queue": "none",
+		"x": 610,
+		"y": 480,
+		"wires": [["879f654efa5409d4"]]
+	},
+	{
+		"id": "c896757766a0d3eb",
+		"type": "api-call-service",
+		"z": "6421f02fabe7e2d2",
+		"name": "ON ",
+		"server": "35e87b1c.c2e7e4",
+		"version": 5,
+		"debugenabled": false,
+		"domain": "switch",
+		"service": "turn_on",
+		"areaId": [],
+		"deviceId": [],
+		"entityId": ["switch.smart_plug_3"],
+		"data": "",
+		"dataType": "jsonata",
+		"mergeContext": "",
+		"mustacheAltTags": false,
+		"outputProperties": [],
+		"queue": "none",
+		"x": 610,
+		"y": 420,
+		"wires": [["879f654efa5409d4"]]
+	},
+	{
+		"id": "bd3ec49b9edbe256",
+		"type": "switch",
+		"z": "6421f02fabe7e2d2",
+		"name": "Switch",
+		"property": "payload.devices[3].status",
+		"propertyType": "msg",
+		"rules": [
+			{
+				"t": "eq",
+				"v": "ON",
+				"vt": "str"
+			},
+			{
+				"t": "eq",
+				"v": "OFF",
+				"vt": "str"
+			}
+		],
+		"checkall": "true",
+		"repair": false,
+		"outputs": 2,
+		"x": 450,
+		"y": 440,
+		"wires": [["c896757766a0d3eb"], ["6dce3bead7112b7e"]]
+	},
+	{
+		"id": "0713f67d8dc78151",
+		"type": "firebase-get",
+		"z": "6421f02fabe7e2d2",
+		"name": "",
+		"constraint": {},
+		"database": "f96499b4cf417441",
+		"outputType": "auto",
+		"passThrough": false,
+		"path": "method",
+		"pathType": "msg",
+		"useConstraint": false,
+		"x": 290,
+		"y": 440,
+		"wires": [["bd3ec49b9edbe256"]]
+	},
+	{
+		"id": "9f7d1d0fdeb2155f",
+		"type": "api-call-service",
+		"z": "6421f02fabe7e2d2",
+		"name": "ON ",
+		"server": "35e87b1c.c2e7e4",
+		"version": 5,
+		"debugenabled": false,
+		"domain": "switch",
+		"service": "turn_on",
+		"areaId": [],
+		"deviceId": [],
+		"entityId": ["switch.smart_plug_4"],
+		"data": "",
+		"dataType": "jsonata",
+		"mergeContext": "",
+		"mustacheAltTags": false,
+		"outputProperties": [],
+		"queue": "none",
+		"x": 610,
+		"y": 540,
+		"wires": [["879f654efa5409d4"]]
+	},
+	{
+		"id": "08c5b8c2c4ac9aea",
+		"type": "firebase-get",
+		"z": "6421f02fabe7e2d2",
+		"name": "",
+		"constraint": {},
+		"database": "f96499b4cf417441",
+		"outputType": "auto",
+		"passThrough": false,
+		"path": "method",
+		"pathType": "msg",
+		"useConstraint": false,
+		"x": 290,
+		"y": 560,
+		"wires": [["a18df2f14e73b480"]]
+	},
+	{
+		"id": "a18df2f14e73b480",
+		"type": "switch",
+		"z": "6421f02fabe7e2d2",
+		"name": "Switch",
+		"property": "payload.devices[4].status",
+		"propertyType": "msg",
+		"rules": [
+			{
+				"t": "eq",
+				"v": "ON",
+				"vt": "str"
+			},
+			{
+				"t": "eq",
+				"v": "OFF",
+				"vt": "str"
+			}
+		],
+		"checkall": "true",
+		"repair": false,
+		"outputs": 2,
+		"x": 450,
+		"y": 560,
+		"wires": [["9f7d1d0fdeb2155f"], ["9322af81393437e2"]]
+	},
+	{
+		"id": "9322af81393437e2",
+		"type": "api-call-service",
+		"z": "6421f02fabe7e2d2",
+		"name": "OFF",
+		"server": "35e87b1c.c2e7e4",
+		"version": 5,
+		"debugenabled": false,
+		"domain": "switch",
+		"service": "turn_off",
+		"areaId": [],
+		"deviceId": [],
+		"entityId": ["switch.smart_plug_4"],
+		"data": "",
+		"dataType": "jsonata",
+		"mergeContext": "",
+		"mustacheAltTags": false,
+		"outputProperties": [],
+		"queue": "none",
+		"x": 610,
+		"y": 600,
+		"wires": [["879f654efa5409d4"]]
+	},
+	{
+		"id": "2da38aff30877e30",
+		"type": "firebase-get",
+		"z": "6421f02fabe7e2d2",
+		"name": "",
+		"constraint": {},
+		"database": "f96499b4cf417441",
+		"outputType": "auto",
+		"passThrough": false,
+		"path": "method",
+		"pathType": "msg",
+		"useConstraint": false,
+		"x": 290,
+		"y": 700,
+		"wires": [["0aae44cc7abcd47e"]]
+	},
+	{
+		"id": "0aae44cc7abcd47e",
+		"type": "switch",
+		"z": "6421f02fabe7e2d2",
+		"name": "Switch",
+		"property": "payload.devices[5].status",
+		"propertyType": "msg",
+		"rules": [
+			{
+				"t": "eq",
+				"v": "ON",
+				"vt": "str"
+			},
+			{
+				"t": "eq",
+				"v": "OFF",
+				"vt": "str"
+			}
+		],
+		"checkall": "true",
+		"repair": false,
+		"outputs": 2,
+		"x": 450,
+		"y": 700,
+		"wires": [["99d5b872283e3dbc"], ["10913f531106ba56"]]
+	},
+	{
+		"id": "99d5b872283e3dbc",
+		"type": "api-call-service",
+		"z": "6421f02fabe7e2d2",
+		"name": "ON ",
+		"server": "35e87b1c.c2e7e4",
+		"version": 5,
+		"debugenabled": false,
+		"domain": "switch",
+		"service": "turn_on",
+		"areaId": [],
+		"deviceId": [],
+		"entityId": ["switch.smart_plug_5"],
+		"data": "",
+		"dataType": "jsonata",
+		"mergeContext": "",
+		"mustacheAltTags": false,
+		"outputProperties": [],
+		"queue": "none",
+		"x": 610,
+		"y": 680,
+		"wires": [["879f654efa5409d4"]]
+	},
+	{
+		"id": "10913f531106ba56",
+		"type": "api-call-service",
+		"z": "6421f02fabe7e2d2",
+		"name": "OFF",
+		"server": "35e87b1c.c2e7e4",
+		"version": 5,
+		"debugenabled": false,
+		"domain": "switch",
+		"service": "turn_off",
+		"areaId": [],
+		"deviceId": [],
+		"entityId": ["switch.smart_plug_5"],
+		"data": "",
+		"dataType": "jsonata",
+		"mergeContext": "",
+		"mustacheAltTags": false,
+		"outputProperties": [],
+		"queue": "none",
+		"x": 610,
+		"y": 740,
+		"wires": [["879f654efa5409d4"]]
+	},
+	{
+		"id": "bc9b5c15d250d42d",
+		"type": "comment",
+		"z": "6421f02fabe7e2d2",
+		"name": "Firebase to Node-Red which TOGGLES device on HomeAssistant",
+		"info": "",
+		"x": 270,
+		"y": 140,
+		"wires": []
+	},
+	{
+		"id": "74fc33b373a72eee",
+		"type": "ha-device",
+		"z": "6421f02fabe7e2d2",
+		"name": "Device#1 ON ",
+		"server": "35e87b1c.c2e7e4",
+		"version": 1,
+		"exposeAsEntityConfig": "",
+		"inputs": 0,
+		"deviceType": "trigger",
+		"device": "07950886a34235258c8de97dd3f52198",
+		"event": {
+			"platform": "device",
+			"type": "turned_on",
+			"device_id": "07950886a34235258c8de97dd3f52198",
+			"entity_id": "5dfcdfa87422e0da692db0e026ccc956",
+			"domain": "switch",
+			"metadata": {
+				"secondary": false
+			}
+		},
+		"capabilities": [],
+		"outputProperties": [
+			{
+				"property": "payload",
+				"propertyType": "msg",
+				"value": "{\"1/status\":\"ON\"}",
+				"valueType": "jsonata"
+			}
+		],
+		"x": 1130,
+		"y": 120,
+		"wires": [["9b5a182c36f3f99e"]]
+	},
+	{
+		"id": "7ebe04771676e73a",
+		"type": "firebase-out",
+		"z": "6421f02fabe7e2d2",
+		"name": "Updates Device State in Firebase",
+		"database": "f96499b4cf417441",
+		"path": "devices",
+		"pathType": "str",
+		"priority": 1,
+		"queryType": "update",
+		"x": 1660,
+		"y": 480,
+		"wires": []
+	},
+	{
+		"id": "9b5a182c36f3f99e",
+		"type": "json",
+		"z": "6421f02fabe7e2d2",
+		"name": "",
+		"property": "payload",
+		"action": "obj",
+		"pretty": true,
+		"x": 1430,
+		"y": 480,
+		"wires": [["7ebe04771676e73a", "2fdc0b68e798cc6e"]]
+	},
+	{
+		"id": "b254f554dfb6c33c",
+		"type": "ha-device",
+		"z": "6421f02fabe7e2d2",
+		"name": "Device#1 OFF",
+		"server": "35e87b1c.c2e7e4",
+		"version": 1,
+		"exposeAsEntityConfig": "",
+		"inputs": 0,
+		"deviceType": "trigger",
+		"device": "07950886a34235258c8de97dd3f52198",
+		"event": {
+			"platform": "device",
+			"type": "turned_off",
+			"device_id": "07950886a34235258c8de97dd3f52198",
+			"entity_id": "5dfcdfa87422e0da692db0e026ccc956",
+			"domain": "switch",
+			"metadata": {
+				"secondary": false
+			}
+		},
+		"capabilities": [],
+		"outputProperties": [
+			{
+				"property": "payload",
+				"propertyType": "msg",
+				"value": "{\"1/status\":\"OFF\"}",
+				"valueType": "jsonata"
+			}
+		],
+		"x": 1130,
+		"y": 180,
+		"wires": [["9b5a182c36f3f99e"]]
+	},
+	{
+		"id": "3f41b8a840e9ae45",
+		"type": "comment",
+		"z": "6421f02fabe7e2d2",
+		"name": "Device # 5",
+		"info": "",
+		"x": 1080,
+		"y": 720,
+		"wires": []
+	},
+	{
+		"id": "78acf8d02c784855",
+		"type": "comment",
+		"z": "6421f02fabe7e2d2",
+		"name": "Device # 1",
+		"info": "",
+		"x": 1080,
+		"y": 80,
+		"wires": []
+	},
+	{
+		"id": "3d385be111a65261",
+		"type": "comment",
+		"z": "6421f02fabe7e2d2",
+		"name": "Device # 2",
+		"info": "",
+		"x": 1080,
+		"y": 240,
+		"wires": []
+	},
+	{
+		"id": "c669cc965386a5a2",
+		"type": "comment",
+		"z": "6421f02fabe7e2d2",
+		"name": "Device # 4",
+		"info": "",
+		"x": 1080,
+		"y": 560,
+		"wires": []
+	},
+	{
+		"id": "d912c50134068300",
+		"type": "comment",
+		"z": "6421f02fabe7e2d2",
+		"name": "Device # 3",
+		"info": "",
+		"x": 1080,
+		"y": 400,
+		"wires": []
+	},
+	{
+		"id": "17ed066fd0fdcc98",
+		"type": "ha-device",
+		"z": "6421f02fabe7e2d2",
+		"name": "Device#2 ON ",
+		"server": "35e87b1c.c2e7e4",
+		"version": 1,
+		"exposeAsEntityConfig": "",
+		"inputs": 0,
+		"deviceType": "trigger",
+		"device": "3c69edbfefe02236b752aea87b387220",
+		"event": {
+			"platform": "device",
+			"type": "turned_on",
+			"device_id": "3c69edbfefe02236b752aea87b387220",
+			"entity_id": "ae6db02e72001245b73d83deafb45e6c",
+			"domain": "switch",
+			"metadata": {
+				"secondary": false
+			}
+		},
+		"capabilities": [],
+		"outputProperties": [
+			{
+				"property": "payload",
+				"propertyType": "msg",
+				"value": "{\"2/status\":\"ON\"}",
+				"valueType": "jsonata"
+			}
+		],
+		"x": 1130,
+		"y": 280,
+		"wires": [["9b5a182c36f3f99e"]]
+	},
+	{
+		"id": "d220df6c0f914fd6",
+		"type": "ha-device",
+		"z": "6421f02fabe7e2d2",
+		"name": "Device#2 OFF",
+		"server": "35e87b1c.c2e7e4",
+		"version": 1,
+		"exposeAsEntityConfig": "",
+		"inputs": 0,
+		"deviceType": "trigger",
+		"device": "3c69edbfefe02236b752aea87b387220",
+		"event": {
+			"platform": "device",
+			"type": "turned_off",
+			"device_id": "3c69edbfefe02236b752aea87b387220",
+			"entity_id": "ae6db02e72001245b73d83deafb45e6c",
+			"domain": "switch",
+			"metadata": {
+				"secondary": false
+			}
+		},
+		"capabilities": [],
+		"outputProperties": [
+			{
+				"property": "payload",
+				"propertyType": "msg",
+				"value": "{\"2/status\":\"OFF\"}",
+				"valueType": "jsonata"
+			}
+		],
+		"x": 1130,
+		"y": 340,
+		"wires": [["9b5a182c36f3f99e"]]
+	},
+	{
+		"id": "f58146089a0ad1de",
+		"type": "ha-device",
+		"z": "6421f02fabe7e2d2",
+		"name": "Device#3 OFF",
+		"server": "35e87b1c.c2e7e4",
+		"version": 1,
+		"exposeAsEntityConfig": "",
+		"inputs": 0,
+		"deviceType": "trigger",
+		"device": "f184ae5709084edd27dc05808fc9cfc6",
+		"event": {
+			"platform": "device",
+			"type": "turned_off",
+			"device_id": "f184ae5709084edd27dc05808fc9cfc6",
+			"entity_id": "0cfb2fd581ff344fa1badcf8cf88c869",
+			"domain": "switch",
+			"metadata": {
+				"secondary": false
+			}
+		},
+		"capabilities": [],
+		"outputProperties": [
+			{
+				"property": "payload",
+				"propertyType": "msg",
+				"value": "{\"3/status\":\"OFF\"}",
+				"valueType": "jsonata"
+			}
+		],
+		"x": 1130,
+		"y": 500,
+		"wires": [["9b5a182c36f3f99e"]]
+	},
+	{
+		"id": "75ae05180a7a095b",
+		"type": "ha-device",
+		"z": "6421f02fabe7e2d2",
+		"name": "Device#3 ON ",
+		"server": "35e87b1c.c2e7e4",
+		"version": 1,
+		"exposeAsEntityConfig": "",
+		"inputs": 0,
+		"deviceType": "trigger",
+		"device": "f184ae5709084edd27dc05808fc9cfc6",
+		"event": {
+			"platform": "device",
+			"type": "turned_on",
+			"device_id": "f184ae5709084edd27dc05808fc9cfc6",
+			"entity_id": "0cfb2fd581ff344fa1badcf8cf88c869",
+			"domain": "switch",
+			"metadata": {
+				"secondary": false
+			}
+		},
+		"capabilities": [],
+		"outputProperties": [
+			{
+				"property": "payload",
+				"propertyType": "msg",
+				"value": "{\"3/status\":\"ON\"}",
+				"valueType": "jsonata"
+			}
+		],
+		"x": 1130,
+		"y": 440,
+		"wires": [["9b5a182c36f3f99e"]]
+	},
+	{
+		"id": "22f5a27ebfd23d4d",
+		"type": "ha-device",
+		"z": "6421f02fabe7e2d2",
+		"name": "Device#4 OFF",
+		"server": "35e87b1c.c2e7e4",
+		"version": 1,
+		"exposeAsEntityConfig": "",
+		"inputs": 0,
+		"deviceType": "trigger",
+		"device": "ca3034748a9d4a4d1a83398ff36e2dd9",
+		"event": {
+			"platform": "device",
+			"type": "turned_off",
+			"device_id": "ca3034748a9d4a4d1a83398ff36e2dd9",
+			"entity_id": "d4e30306fcd23bc3ab25355d3473bf84",
+			"domain": "switch",
+			"metadata": {
+				"secondary": false
+			}
+		},
+		"capabilities": [],
+		"outputProperties": [
+			{
+				"property": "payload",
+				"propertyType": "msg",
+				"value": "{\"4/status\":\"OFF\"}",
+				"valueType": "jsonata"
+			}
+		],
+		"x": 1130,
+		"y": 660,
+		"wires": [["9b5a182c36f3f99e"]]
+	},
+	{
+		"id": "68ee5f070a8366b9",
+		"type": "ha-device",
+		"z": "6421f02fabe7e2d2",
+		"name": "Device#4 ON ",
+		"server": "35e87b1c.c2e7e4",
+		"version": 1,
+		"exposeAsEntityConfig": "",
+		"inputs": 0,
+		"deviceType": "trigger",
+		"device": "ca3034748a9d4a4d1a83398ff36e2dd9",
+		"event": {
+			"platform": "device",
+			"type": "turned_on",
+			"device_id": "ca3034748a9d4a4d1a83398ff36e2dd9",
+			"entity_id": "d4e30306fcd23bc3ab25355d3473bf84",
+			"domain": "switch",
+			"metadata": {
+				"secondary": false
+			}
+		},
+		"capabilities": [],
+		"outputProperties": [
+			{
+				"property": "payload",
+				"propertyType": "msg",
+				"value": "{\"4/status\":\"ON\"}",
+				"valueType": "jsonata"
+			}
+		],
+		"x": 1130,
+		"y": 600,
+		"wires": [["9b5a182c36f3f99e"]]
+	},
+	{
+		"id": "97c0f16846a888c3",
+		"type": "ha-device",
+		"z": "6421f02fabe7e2d2",
+		"name": "Device#5 OFF",
+		"server": "35e87b1c.c2e7e4",
+		"version": 1,
+		"exposeAsEntityConfig": "",
+		"inputs": 0,
+		"deviceType": "trigger",
+		"device": "5e625d60e2a5db9574b652892c3c9974",
+		"event": {
+			"platform": "device",
+			"type": "turned_off",
+			"device_id": "5e625d60e2a5db9574b652892c3c9974",
+			"entity_id": "628a922bbe19ecdc783fdf45b69833d2",
+			"domain": "switch",
+			"metadata": {
+				"secondary": false
+			}
+		},
+		"capabilities": [],
+		"outputProperties": [
+			{
+				"property": "payload",
+				"propertyType": "msg",
+				"value": "{\"5/status\":\"OFF\"}",
+				"valueType": "jsonata"
+			}
+		],
+		"x": 1130,
+		"y": 820,
+		"wires": [["9b5a182c36f3f99e"]]
+	},
+	{
+		"id": "1da4aa18887c73ec",
+		"type": "ha-device",
+		"z": "6421f02fabe7e2d2",
+		"name": "Device#5 ON ",
+		"server": "35e87b1c.c2e7e4",
+		"version": 1,
+		"exposeAsEntityConfig": "",
+		"inputs": 0,
+		"deviceType": "trigger",
+		"device": "5e625d60e2a5db9574b652892c3c9974",
+		"event": {
+			"platform": "device",
+			"type": "turned_on",
+			"device_id": "5e625d60e2a5db9574b652892c3c9974",
+			"entity_id": "628a922bbe19ecdc783fdf45b69833d2",
+			"domain": "switch",
+			"metadata": {
+				"secondary": false
+			}
+		},
+		"capabilities": [],
+		"outputProperties": [
+			{
+				"property": "payload",
+				"propertyType": "msg",
+				"value": "{\"5/status\":\"ON\"}",
+				"valueType": "jsonata"
+			}
+		],
+		"x": 1130,
+		"y": 760,
+		"wires": [["9b5a182c36f3f99e"]]
+	},
+	{
+		"id": "c197df4e1a593776",
+		"type": "comment",
+		"z": "6421f02fabe7e2d2",
+		"name": "HomeAssistant to Firebase",
+		"info": "",
+		"x": 1090,
+		"y": 40,
+		"wires": []
+	},
+	{
+		"id": "c10f62db32f1d53c",
+		"type": "comment",
+		"z": "6421f02fabe7e2d2",
+		"name": "Device # 1",
+		"info": "",
+		"x": 100,
+		"y": 180,
+		"wires": []
+	},
+	{
+		"id": "c58ad4f592548c55",
+		"type": "comment",
+		"z": "6421f02fabe7e2d2",
+		"name": "Device # 2",
+		"info": "",
+		"x": 100,
+		"y": 280,
+		"wires": []
+	},
+	{
+		"id": "ea6304a824832e3a",
+		"type": "comment",
+		"z": "6421f02fabe7e2d2",
+		"name": "Device # 3",
+		"info": "",
+		"x": 100,
+		"y": 400,
+		"wires": []
+	},
+	{
+		"id": "1de08c59e766f8b3",
+		"type": "comment",
+		"z": "6421f02fabe7e2d2",
+		"name": "Device # 4",
+		"info": "",
+		"x": 100,
+		"y": 520,
+		"wires": []
+	},
+	{
+		"id": "6721fe89af759306",
+		"type": "comment",
+		"z": "6421f02fabe7e2d2",
+		"name": "Device # 5",
+		"info": "",
+		"x": 100,
+		"y": 660,
+		"wires": []
+	},
+	{
+		"id": "2fdc0b68e798cc6e",
+		"type": "debug",
+		"z": "6421f02fabe7e2d2",
+		"name": "debug 20",
+		"active": true,
+		"tosidebar": true,
+		"console": false,
+		"tostatus": false,
+		"complete": "payload",
+		"targetType": "msg",
+		"statusVal": "",
+		"statusType": "auto",
+		"x": 1500,
+		"y": 380,
+		"wires": []
+	},
+	{
+		"id": "f96499b4cf417441",
+		"type": "database-config",
+		"name": "CompSys",
+		"authType": "privateKey",
+		"claims": {},
+		"createUser": false,
+		"useClaims": false
+	},
+	{
+		"id": "35e87b1c.c2e7e4",
+		"type": "server",
+		"name": "Home Assistant",
+		"addon": true
+	}
+]

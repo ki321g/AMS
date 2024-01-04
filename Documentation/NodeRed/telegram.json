@@ -1,0 +1,544 @@
+[
+  {
+      "id": "0ca1aa7e1113a4e1",
+      "type": "tab",
+      "label": "Telegram",
+      "disabled": false,
+      "info": "",
+      "env": []
+  },
+  {
+      "id": "bae9af54aa096427",
+      "type": "comment",
+      "z": "0ca1aa7e1113a4e1",
+      "name": "Trun on Device from Telegram",
+      "info": "",
+      "x": 940,
+      "y": 240,
+      "wires": []
+  },
+  {
+      "id": "d331f2c5a064bb0a",
+      "type": "telegrambot-command",
+      "z": "0ca1aa7e1113a4e1",
+      "name": "/device",
+      "bot": "1920d99f282aedbb",
+      "command": "/device",
+      "commandType": "str",
+      "commandCase": false,
+      "x": 830,
+      "y": 320,
+      "wires": [
+          [
+              "c84d6147278a3b06",
+              "f0a90d6e03709e2a"
+          ]
+      ]
+  },
+  {
+      "id": "c84d6147278a3b06",
+      "type": "telegrambot-switch",
+      "z": "0ca1aa7e1113a4e1",
+      "name": "Which Device should i turn on?",
+      "bot": "1920d99f282aedbb",
+      "chatId": "480787829",
+      "question": "Which Device should i turn on?",
+      "answers": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+      ],
+      "outputs": 5,
+      "autoAnswerCallback": true,
+      "verticalAnswers": false,
+      "timeoutValue": "",
+      "timeoutUnits": "",
+      "parseMode": "",
+      "x": 1050,
+      "y": 320,
+      "wires": [
+          [
+              "ea57da75ef7137ca",
+              "b1949c5aeb759430"
+          ],
+          [
+              "aa0cc155a10d4119",
+              "71fd4c7b32456cf0"
+          ],
+          [
+              "6ad49bf8758b8ce1",
+              "e66490a1934774be"
+          ],
+          [
+              "e129922522211a74",
+              "c46fc9626019b053"
+          ],
+          [
+              "49036423fb7d78f2",
+              "f6d21f58c7f0676d"
+          ]
+      ]
+  },
+  {
+      "id": "f0a90d6e03709e2a",
+      "type": "debug",
+      "z": "0ca1aa7e1113a4e1",
+      "name": "debug 17",
+      "active": true,
+      "tosidebar": true,
+      "console": false,
+      "tostatus": false,
+      "complete": "true",
+      "targetType": "full",
+      "statusVal": "",
+      "statusType": "auto",
+      "x": 940,
+      "y": 420,
+      "wires": []
+  },
+  {
+      "id": "ea57da75ef7137ca",
+      "type": "api-call-service",
+      "z": "0ca1aa7e1113a4e1",
+      "name": "Device#1",
+      "server": "35e87b1c.c2e7e4",
+      "version": 5,
+      "debugenabled": false,
+      "domain": "switch",
+      "service": "toggle",
+      "areaId": [],
+      "deviceId": [],
+      "entityId": [
+          "switch.smart_plug_1"
+      ],
+      "data": "",
+      "dataType": "jsonata",
+      "mergeContext": "",
+      "mustacheAltTags": false,
+      "outputProperties": [],
+      "queue": "none",
+      "x": 1340,
+      "y": 40,
+      "wires": [
+          []
+      ]
+  },
+  {
+      "id": "b1949c5aeb759430",
+      "type": "telegrambot-notify",
+      "z": "0ca1aa7e1113a4e1",
+      "name": "Reply from Device#1",
+      "bot": "1920d99f282aedbb",
+      "chatId": "480787829",
+      "message": "Ok, Device#1, has been turned on",
+      "parseMode": "",
+      "x": 1400,
+      "y": 100,
+      "wires": []
+  },
+  {
+      "id": "aa0cc155a10d4119",
+      "type": "api-call-service",
+      "z": "0ca1aa7e1113a4e1",
+      "name": "Device#2",
+      "server": "35e87b1c.c2e7e4",
+      "version": 5,
+      "debugenabled": false,
+      "domain": "switch",
+      "service": "toggle",
+      "areaId": [],
+      "deviceId": [],
+      "entityId": [
+          "switch.smart_plug_2"
+      ],
+      "data": "",
+      "dataType": "jsonata",
+      "mergeContext": "",
+      "mustacheAltTags": false,
+      "outputProperties": [],
+      "queue": "none",
+      "x": 1340,
+      "y": 160,
+      "wires": [
+          []
+      ]
+  },
+  {
+      "id": "71fd4c7b32456cf0",
+      "type": "telegrambot-notify",
+      "z": "0ca1aa7e1113a4e1",
+      "name": "Reply from Device#2",
+      "bot": "1920d99f282aedbb",
+      "chatId": "480787829",
+      "message": "Ok, Device#2, has been turned on",
+      "parseMode": "",
+      "x": 1400,
+      "y": 220,
+      "wires": []
+  },
+  {
+      "id": "6ad49bf8758b8ce1",
+      "type": "api-call-service",
+      "z": "0ca1aa7e1113a4e1",
+      "name": "Device#3",
+      "server": "35e87b1c.c2e7e4",
+      "version": 5,
+      "debugenabled": false,
+      "domain": "switch",
+      "service": "toggle",
+      "areaId": [],
+      "deviceId": [],
+      "entityId": [
+          "switch.smart_plug_3"
+      ],
+      "data": "",
+      "dataType": "jsonata",
+      "mergeContext": "",
+      "mustacheAltTags": false,
+      "outputProperties": [],
+      "queue": "none",
+      "x": 1340,
+      "y": 280,
+      "wires": [
+          []
+      ]
+  },
+  {
+      "id": "e66490a1934774be",
+      "type": "telegrambot-notify",
+      "z": "0ca1aa7e1113a4e1",
+      "name": "Reply from Device#3",
+      "bot": "1920d99f282aedbb",
+      "chatId": "480787829",
+      "message": "Ok, Device#3, has been turned on",
+      "parseMode": "",
+      "x": 1420,
+      "y": 320,
+      "wires": []
+  },
+  {
+      "id": "e129922522211a74",
+      "type": "api-call-service",
+      "z": "0ca1aa7e1113a4e1",
+      "name": "Device#4",
+      "server": "35e87b1c.c2e7e4",
+      "version": 5,
+      "debugenabled": false,
+      "domain": "switch",
+      "service": "toggle",
+      "areaId": [],
+      "deviceId": [],
+      "entityId": [
+          "switch.smart_plug_4"
+      ],
+      "data": "",
+      "dataType": "jsonata",
+      "mergeContext": "",
+      "mustacheAltTags": false,
+      "outputProperties": [],
+      "queue": "none",
+      "x": 1360,
+      "y": 380,
+      "wires": [
+          []
+      ]
+  },
+  {
+      "id": "c46fc9626019b053",
+      "type": "telegrambot-notify",
+      "z": "0ca1aa7e1113a4e1",
+      "name": "Reply from Device#4",
+      "bot": "1920d99f282aedbb",
+      "chatId": "480787829",
+      "message": "Ok, Device#4, has been turned on",
+      "parseMode": "",
+      "x": 1420,
+      "y": 440,
+      "wires": []
+  },
+  {
+      "id": "49036423fb7d78f2",
+      "type": "api-call-service",
+      "z": "0ca1aa7e1113a4e1",
+      "name": "Device#5",
+      "server": "35e87b1c.c2e7e4",
+      "version": 5,
+      "debugenabled": false,
+      "domain": "switch",
+      "service": "toggle",
+      "areaId": [],
+      "deviceId": [],
+      "entityId": [
+          "switch.smart_plug_5"
+      ],
+      "data": "",
+      "dataType": "jsonata",
+      "mergeContext": "",
+      "mustacheAltTags": false,
+      "outputProperties": [],
+      "queue": "none",
+      "x": 1380,
+      "y": 500,
+      "wires": [
+          []
+      ]
+  },
+  {
+      "id": "f6d21f58c7f0676d",
+      "type": "telegrambot-notify",
+      "z": "0ca1aa7e1113a4e1",
+      "name": "Reply from Device#5",
+      "bot": "1920d99f282aedbb",
+      "chatId": "480787829",
+      "message": "Ok, Device#5, has been turned on",
+      "parseMode": "",
+      "x": 1420,
+      "y": 560,
+      "wires": []
+  },
+  {
+      "id": "237347163dac9b69",
+      "type": "http in",
+      "z": "0ca1aa7e1113a4e1",
+      "name": "",
+      "url": "telegram",
+      "method": "get",
+      "upload": false,
+      "swaggerDoc": "",
+      "x": 160,
+      "y": 160,
+      "wires": [
+          [
+              "41739bec4fe918d8",
+              "660f5887101c6f91"
+          ]
+      ]
+  },
+  {
+      "id": "0a3e8048d7539ab0",
+      "type": "http response",
+      "z": "0ca1aa7e1113a4e1",
+      "name": "",
+      "statusCode": "",
+      "headers": {},
+      "x": 790,
+      "y": 160,
+      "wires": []
+  },
+  {
+      "id": "41739bec4fe918d8",
+      "type": "debug",
+      "z": "0ca1aa7e1113a4e1",
+      "name": "debug 26",
+      "active": true,
+      "tosidebar": true,
+      "console": false,
+      "tostatus": false,
+      "complete": "true",
+      "targetType": "full",
+      "statusVal": "",
+      "statusType": "auto",
+      "x": 380,
+      "y": 200,
+      "wires": []
+  },
+  {
+      "id": "660f5887101c6f91",
+      "type": "function",
+      "z": "0ca1aa7e1113a4e1",
+      "name": "build payload",
+      "func": "msg.method = \"sendPhoto\";\nmsg.payload = {\n    \"photo\": msg.payload.image,\n    \"caption\": msg.payload.firstname + \" \" + msg.payload.lastname + \" wants access to DEVICE#\" + msg.payload.device,\n    \"reply_markup\": {\n        \"keyboard\": [\n            ['Grant Access', 'Deny Access']],\n        'resize_keyboard': true,\n        'one_time_keyboard': true\n    }\n};\n\nreturn msg;",
+      "outputs": 1,
+      "timeout": "",
+      "noerr": 0,
+      "initialize": "",
+      "finalize": "",
+      "libs": [],
+      "x": 390,
+      "y": 160,
+      "wires": [
+          [
+              "b409c05d0cae28d4"
+          ]
+      ]
+  },
+  {
+      "id": "b409c05d0cae28d4",
+      "type": "telegrambot-payload",
+      "z": "0ca1aa7e1113a4e1",
+      "name": "",
+      "bot": "1920d99f282aedbb",
+      "chatId": "480787829",
+      "sendMethod": "",
+      "payload": "",
+      "x": 590,
+      "y": 160,
+      "wires": [
+          [
+              "0a3e8048d7539ab0"
+          ]
+      ]
+  },
+  {
+      "id": "eb9d9f76731deb2c",
+      "type": "comment",
+      "z": "0ca1aa7e1113a4e1",
+      "name": "Send an Image over HTTP Request",
+      "info": "",
+      "x": 180,
+      "y": 120,
+      "wires": []
+  },
+  {
+      "id": "5f7356c1a2912f4d",
+      "type": "telegrambot-command",
+      "z": "0ca1aa7e1113a4e1",
+      "name": "",
+      "bot": "1920d99f282aedbb",
+      "command": "Grant Access",
+      "commandType": "str",
+      "commandCase": false,
+      "x": 190,
+      "y": 300,
+      "wires": [
+          [
+              "1c9b0417b0b6f6fd",
+              "ac76353e9329651a"
+          ]
+      ]
+  },
+  {
+      "id": "1c9b0417b0b6f6fd",
+      "type": "telegrambot-notify",
+      "z": "0ca1aa7e1113a4e1",
+      "name": "",
+      "bot": "1920d99f282aedbb",
+      "chatId": "480787829",
+      "message": "Access Granted",
+      "parseMode": "",
+      "x": 440,
+      "y": 360,
+      "wires": []
+  },
+  {
+      "id": "ac76353e9329651a",
+      "type": "api-call-service",
+      "z": "0ca1aa7e1113a4e1",
+      "name": "ON ",
+      "server": "35e87b1c.c2e7e4",
+      "version": 5,
+      "debugenabled": false,
+      "domain": "switch",
+      "service": "turn_on",
+      "areaId": [],
+      "deviceId": [],
+      "entityId": [
+          "switch.smart_plug_5"
+      ],
+      "data": "",
+      "dataType": "jsonata",
+      "mergeContext": "",
+      "mustacheAltTags": false,
+      "outputProperties": [],
+      "queue": "none",
+      "x": 410,
+      "y": 300,
+      "wires": [
+          []
+      ]
+  },
+  {
+      "id": "012df5f8cd7c80f2",
+      "type": "telegrambot-command",
+      "z": "0ca1aa7e1113a4e1",
+      "name": "",
+      "bot": "1920d99f282aedbb",
+      "command": "Deny Access",
+      "commandType": "str",
+      "commandCase": false,
+      "x": 190,
+      "y": 480,
+      "wires": [
+          [
+              "ab3da2d2d982b3b0",
+              "de0221b5bacb314e"
+          ]
+      ]
+  },
+  {
+      "id": "ab3da2d2d982b3b0",
+      "type": "telegrambot-notify",
+      "z": "0ca1aa7e1113a4e1",
+      "name": "",
+      "bot": "1920d99f282aedbb",
+      "chatId": "480787829",
+      "message": "Access Denied",
+      "parseMode": "",
+      "x": 440,
+      "y": 540,
+      "wires": []
+  },
+  {
+      "id": "de0221b5bacb314e",
+      "type": "api-call-service",
+      "z": "0ca1aa7e1113a4e1",
+      "name": "OFF",
+      "server": "35e87b1c.c2e7e4",
+      "version": 5,
+      "debugenabled": false,
+      "domain": "switch",
+      "service": "turn_off",
+      "areaId": [],
+      "deviceId": [],
+      "entityId": [
+          "switch.smart_plug_5"
+      ],
+      "data": "",
+      "dataType": "jsonata",
+      "mergeContext": "",
+      "mustacheAltTags": false,
+      "outputProperties": [],
+      "queue": "none",
+      "x": 410,
+      "y": 480,
+      "wires": [
+          []
+      ]
+  },
+  {
+      "id": "13df778ea8e42c44",
+      "type": "comment",
+      "z": "0ca1aa7e1113a4e1",
+      "name": "Grant Access",
+      "info": "",
+      "x": 150,
+      "y": 260,
+      "wires": []
+  },
+  {
+      "id": "aa1c1923e112b49e",
+      "type": "comment",
+      "z": "0ca1aa7e1113a4e1",
+      "name": "Deny Access",
+      "info": "",
+      "x": 150,
+      "y": 440,
+      "wires": []
+  },
+  {
+      "id": "1920d99f282aedbb",
+      "type": "telegrambot-config",
+      "botname": "HomeAssistant",
+      "usernames": "",
+      "chatIds": "480787829",
+      "pollInterval": "300"
+  },
+  {
+      "id": "35e87b1c.c2e7e4",
+      "type": "server",
+      "name": "Home Assistant",
+      "addon": true
+  }
+]

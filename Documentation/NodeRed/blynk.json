@@ -1,0 +1,1212 @@
+[
+  {
+      "id": "287c7e542b3208bb",
+      "type": "tab",
+      "label": "Blynk",
+      "disabled": false,
+      "info": "",
+      "env": []
+  },
+  {
+      "id": "c10f40b501d2f31c",
+      "type": "blynk-iot-in-write",
+      "z": "287c7e542b3208bb",
+      "name": "Device#1",
+      "pin": "0",
+      "pin_all": 0,
+      "client": "69abe4b978976ea5",
+      "x": 160,
+      "y": 220,
+      "wires": [
+          [
+              "1cebc21e3f12255f"
+          ]
+      ]
+  },
+  {
+      "id": "2de1e43d44bf1d21",
+      "type": "debug",
+      "z": "287c7e542b3208bb",
+      "name": "",
+      "active": true,
+      "tosidebar": true,
+      "console": false,
+      "tostatus": false,
+      "complete": "payload",
+      "targetType": "msg",
+      "statusVal": "",
+      "statusType": "auto",
+      "x": 710,
+      "y": 200,
+      "wires": []
+  },
+  {
+      "id": "1cebc21e3f12255f",
+      "type": "switch",
+      "z": "287c7e542b3208bb",
+      "name": "Switch",
+      "property": "payload",
+      "propertyType": "msg",
+      "rules": [
+          {
+              "t": "eq",
+              "v": "1",
+              "vt": "str"
+          },
+          {
+              "t": "eq",
+              "v": "0",
+              "vt": "str"
+          }
+      ],
+      "checkall": "true",
+      "repair": false,
+      "outputs": 2,
+      "x": 310,
+      "y": 220,
+      "wires": [
+          [
+              "75df0eb2e60a3a79"
+          ],
+          [
+              "e771b1280adcf61e"
+          ]
+      ]
+  },
+  {
+      "id": "75df0eb2e60a3a79",
+      "type": "api-call-service",
+      "z": "287c7e542b3208bb",
+      "name": "ON ",
+      "server": "35e87b1c.c2e7e4",
+      "version": 5,
+      "debugenabled": false,
+      "domain": "switch",
+      "service": "turn_on",
+      "areaId": [],
+      "deviceId": [],
+      "entityId": [
+          "switch.smart_plug_1"
+      ],
+      "data": "",
+      "dataType": "jsonata",
+      "mergeContext": "",
+      "mustacheAltTags": false,
+      "outputProperties": [],
+      "queue": "none",
+      "x": 470,
+      "y": 180,
+      "wires": [
+          [
+              "2de1e43d44bf1d21"
+          ]
+      ]
+  },
+  {
+      "id": "e771b1280adcf61e",
+      "type": "api-call-service",
+      "z": "287c7e542b3208bb",
+      "name": "OFF",
+      "server": "35e87b1c.c2e7e4",
+      "version": 5,
+      "debugenabled": false,
+      "domain": "switch",
+      "service": "turn_off",
+      "areaId": [],
+      "deviceId": [],
+      "entityId": [
+          "switch.smart_plug_1"
+      ],
+      "data": "",
+      "dataType": "jsonata",
+      "mergeContext": "",
+      "mustacheAltTags": false,
+      "outputProperties": [],
+      "queue": "none",
+      "x": 470,
+      "y": 240,
+      "wires": [
+          [
+              "2de1e43d44bf1d21"
+          ]
+      ]
+  },
+  {
+      "id": "243e3119ae7ca221",
+      "type": "comment",
+      "z": "287c7e542b3208bb",
+      "name": "Device # 5",
+      "info": "",
+      "x": 140,
+      "y": 660,
+      "wires": []
+  },
+  {
+      "id": "5681649961688e87",
+      "type": "comment",
+      "z": "287c7e542b3208bb",
+      "name": "Device # 1",
+      "info": "",
+      "x": 140,
+      "y": 180,
+      "wires": []
+  },
+  {
+      "id": "1e2fe18a50ce699e",
+      "type": "comment",
+      "z": "287c7e542b3208bb",
+      "name": "Device # 2",
+      "info": "",
+      "x": 140,
+      "y": 300,
+      "wires": []
+  },
+  {
+      "id": "97c1194e7a907353",
+      "type": "comment",
+      "z": "287c7e542b3208bb",
+      "name": "Device # 3",
+      "info": "",
+      "x": 140,
+      "y": 420,
+      "wires": []
+  },
+  {
+      "id": "e1aff430dbe711d7",
+      "type": "comment",
+      "z": "287c7e542b3208bb",
+      "name": "Device # 4",
+      "info": "",
+      "x": 140,
+      "y": 540,
+      "wires": []
+  },
+  {
+      "id": "ddc2de9a1a9323a2",
+      "type": "blynk-iot-in-write",
+      "z": "287c7e542b3208bb",
+      "name": "Device#3",
+      "pin": "2",
+      "pin_all": 0,
+      "client": "69abe4b978976ea5",
+      "x": 160,
+      "y": 460,
+      "wires": [
+          [
+              "44626e0996e38266"
+          ]
+      ]
+  },
+  {
+      "id": "44626e0996e38266",
+      "type": "switch",
+      "z": "287c7e542b3208bb",
+      "name": "Switch",
+      "property": "payload",
+      "propertyType": "msg",
+      "rules": [
+          {
+              "t": "eq",
+              "v": "1",
+              "vt": "str"
+          },
+          {
+              "t": "eq",
+              "v": "0",
+              "vt": "str"
+          }
+      ],
+      "checkall": "true",
+      "repair": false,
+      "outputs": 2,
+      "x": 310,
+      "y": 460,
+      "wires": [
+          [
+              "2f9e807e271542e5"
+          ],
+          [
+              "b08f413b80ccb4a3"
+          ]
+      ]
+  },
+  {
+      "id": "b94fe03cabaa52ec",
+      "type": "debug",
+      "z": "287c7e542b3208bb",
+      "name": "",
+      "active": true,
+      "tosidebar": true,
+      "console": false,
+      "tostatus": false,
+      "complete": "payload",
+      "targetType": "msg",
+      "statusVal": "",
+      "statusType": "auto",
+      "x": 710,
+      "y": 440,
+      "wires": []
+  },
+  {
+      "id": "78692ca3ee98532a",
+      "type": "blynk-iot-in-write",
+      "z": "287c7e542b3208bb",
+      "name": "Device#4",
+      "pin": "3",
+      "pin_all": 0,
+      "client": "69abe4b978976ea5",
+      "x": 160,
+      "y": 580,
+      "wires": [
+          [
+              "bdc99eefc8e03ca3"
+          ]
+      ]
+  },
+  {
+      "id": "bdc99eefc8e03ca3",
+      "type": "switch",
+      "z": "287c7e542b3208bb",
+      "name": "Switch",
+      "property": "payload",
+      "propertyType": "msg",
+      "rules": [
+          {
+              "t": "eq",
+              "v": "1",
+              "vt": "str"
+          },
+          {
+              "t": "eq",
+              "v": "0",
+              "vt": "str"
+          }
+      ],
+      "checkall": "true",
+      "repair": false,
+      "outputs": 2,
+      "x": 310,
+      "y": 580,
+      "wires": [
+          [
+              "e193ff9926bd2476"
+          ],
+          [
+              "1969babaac81e1a1"
+          ]
+      ]
+  },
+  {
+      "id": "2164f042563c6429",
+      "type": "debug",
+      "z": "287c7e542b3208bb",
+      "name": "",
+      "active": true,
+      "tosidebar": true,
+      "console": false,
+      "tostatus": false,
+      "complete": "payload",
+      "targetType": "msg",
+      "statusVal": "",
+      "statusType": "auto",
+      "x": 710,
+      "y": 560,
+      "wires": []
+  },
+  {
+      "id": "8e3f59ba23b62e0c",
+      "type": "blynk-iot-in-write",
+      "z": "287c7e542b3208bb",
+      "name": "Device#5",
+      "pin": "4",
+      "pin_all": 0,
+      "client": "69abe4b978976ea5",
+      "x": 160,
+      "y": 700,
+      "wires": [
+          [
+              "0458b9cde491c6b2"
+          ]
+      ]
+  },
+  {
+      "id": "0458b9cde491c6b2",
+      "type": "switch",
+      "z": "287c7e542b3208bb",
+      "name": "Switch",
+      "property": "payload",
+      "propertyType": "msg",
+      "rules": [
+          {
+              "t": "eq",
+              "v": "1",
+              "vt": "str"
+          },
+          {
+              "t": "eq",
+              "v": "0",
+              "vt": "str"
+          }
+      ],
+      "checkall": "true",
+      "repair": false,
+      "outputs": 2,
+      "x": 310,
+      "y": 700,
+      "wires": [
+          [
+              "325a415fdadd6c06"
+          ],
+          [
+              "de47fdefc893c386"
+          ]
+      ]
+  },
+  {
+      "id": "ea7f6122c3724915",
+      "type": "debug",
+      "z": "287c7e542b3208bb",
+      "name": "",
+      "active": true,
+      "tosidebar": true,
+      "console": false,
+      "tostatus": false,
+      "complete": "payload",
+      "targetType": "msg",
+      "statusVal": "",
+      "statusType": "auto",
+      "x": 710,
+      "y": 680,
+      "wires": []
+  },
+  {
+      "id": "2f9e807e271542e5",
+      "type": "api-call-service",
+      "z": "287c7e542b3208bb",
+      "name": "ON ",
+      "server": "35e87b1c.c2e7e4",
+      "version": 5,
+      "debugenabled": false,
+      "domain": "switch",
+      "service": "turn_on",
+      "areaId": [],
+      "deviceId": [],
+      "entityId": [
+          "switch.smart_plug_3"
+      ],
+      "data": "",
+      "dataType": "jsonata",
+      "mergeContext": "",
+      "mustacheAltTags": false,
+      "outputProperties": [],
+      "queue": "none",
+      "x": 470,
+      "y": 420,
+      "wires": [
+          [
+              "b94fe03cabaa52ec"
+          ]
+      ]
+  },
+  {
+      "id": "b08f413b80ccb4a3",
+      "type": "api-call-service",
+      "z": "287c7e542b3208bb",
+      "name": "OFF",
+      "server": "35e87b1c.c2e7e4",
+      "version": 5,
+      "debugenabled": false,
+      "domain": "switch",
+      "service": "turn_off",
+      "areaId": [],
+      "deviceId": [],
+      "entityId": [
+          "switch.smart_plug_3"
+      ],
+      "data": "",
+      "dataType": "jsonata",
+      "mergeContext": "",
+      "mustacheAltTags": false,
+      "outputProperties": [],
+      "queue": "none",
+      "x": 470,
+      "y": 480,
+      "wires": [
+          [
+              "b94fe03cabaa52ec"
+          ]
+      ]
+  },
+  {
+      "id": "e193ff9926bd2476",
+      "type": "api-call-service",
+      "z": "287c7e542b3208bb",
+      "name": "ON ",
+      "server": "35e87b1c.c2e7e4",
+      "version": 5,
+      "debugenabled": false,
+      "domain": "switch",
+      "service": "turn_on",
+      "areaId": [],
+      "deviceId": [],
+      "entityId": [
+          "switch.smart_plug_4"
+      ],
+      "data": "",
+      "dataType": "jsonata",
+      "mergeContext": "",
+      "mustacheAltTags": false,
+      "outputProperties": [],
+      "queue": "none",
+      "x": 470,
+      "y": 540,
+      "wires": [
+          [
+              "2164f042563c6429"
+          ]
+      ]
+  },
+  {
+      "id": "1969babaac81e1a1",
+      "type": "api-call-service",
+      "z": "287c7e542b3208bb",
+      "name": "OFF",
+      "server": "35e87b1c.c2e7e4",
+      "version": 5,
+      "debugenabled": false,
+      "domain": "switch",
+      "service": "turn_off",
+      "areaId": [],
+      "deviceId": [],
+      "entityId": [
+          "switch.smart_plug_4"
+      ],
+      "data": "",
+      "dataType": "jsonata",
+      "mergeContext": "",
+      "mustacheAltTags": false,
+      "outputProperties": [],
+      "queue": "none",
+      "x": 470,
+      "y": 600,
+      "wires": [
+          [
+              "2164f042563c6429"
+          ]
+      ]
+  },
+  {
+      "id": "325a415fdadd6c06",
+      "type": "api-call-service",
+      "z": "287c7e542b3208bb",
+      "name": "ON ",
+      "server": "35e87b1c.c2e7e4",
+      "version": 5,
+      "debugenabled": false,
+      "domain": "switch",
+      "service": "turn_on",
+      "areaId": [],
+      "deviceId": [],
+      "entityId": [
+          "switch.smart_plug_5"
+      ],
+      "data": "",
+      "dataType": "jsonata",
+      "mergeContext": "",
+      "mustacheAltTags": false,
+      "outputProperties": [],
+      "queue": "none",
+      "x": 470,
+      "y": 660,
+      "wires": [
+          [
+              "ea7f6122c3724915"
+          ]
+      ]
+  },
+  {
+      "id": "de47fdefc893c386",
+      "type": "api-call-service",
+      "z": "287c7e542b3208bb",
+      "name": "OFF",
+      "server": "35e87b1c.c2e7e4",
+      "version": 5,
+      "debugenabled": false,
+      "domain": "switch",
+      "service": "turn_off",
+      "areaId": [],
+      "deviceId": [],
+      "entityId": [
+          "switch.smart_plug_5"
+      ],
+      "data": "",
+      "dataType": "jsonata",
+      "mergeContext": "",
+      "mustacheAltTags": false,
+      "outputProperties": [],
+      "queue": "none",
+      "x": 470,
+      "y": 720,
+      "wires": [
+          [
+              "ea7f6122c3724915"
+          ]
+      ]
+  },
+  {
+      "id": "e35d879eb828066c",
+      "type": "switch",
+      "z": "287c7e542b3208bb",
+      "name": "Switch",
+      "property": "payload",
+      "propertyType": "msg",
+      "rules": [
+          {
+              "t": "eq",
+              "v": "1",
+              "vt": "str"
+          },
+          {
+              "t": "eq",
+              "v": "0",
+              "vt": "str"
+          }
+      ],
+      "checkall": "true",
+      "repair": false,
+      "outputs": 2,
+      "x": 310,
+      "y": 340,
+      "wires": [
+          [
+              "6034e3bf55c27732"
+          ],
+          [
+              "5abcb8116b9b45d6"
+          ]
+      ]
+  },
+  {
+      "id": "2b8439f4f39cb447",
+      "type": "debug",
+      "z": "287c7e542b3208bb",
+      "name": "",
+      "active": true,
+      "tosidebar": true,
+      "console": false,
+      "tostatus": false,
+      "complete": "payload",
+      "targetType": "msg",
+      "statusVal": "",
+      "statusType": "auto",
+      "x": 710,
+      "y": 320,
+      "wires": []
+  },
+  {
+      "id": "465759f3c86c1df1",
+      "type": "blynk-iot-in-write",
+      "z": "287c7e542b3208bb",
+      "name": "Device#2",
+      "pin": "1",
+      "pin_all": 0,
+      "client": "69abe4b978976ea5",
+      "x": 160,
+      "y": 340,
+      "wires": [
+          [
+              "e35d879eb828066c"
+          ]
+      ]
+  },
+  {
+      "id": "6034e3bf55c27732",
+      "type": "api-call-service",
+      "z": "287c7e542b3208bb",
+      "name": "ON ",
+      "server": "35e87b1c.c2e7e4",
+      "version": 5,
+      "debugenabled": false,
+      "domain": "switch",
+      "service": "turn_on",
+      "areaId": [],
+      "deviceId": [],
+      "entityId": [
+          "switch.smart_plug_2"
+      ],
+      "data": "",
+      "dataType": "jsonata",
+      "mergeContext": "",
+      "mustacheAltTags": false,
+      "outputProperties": [],
+      "queue": "none",
+      "x": 470,
+      "y": 300,
+      "wires": [
+          [
+              "2b8439f4f39cb447"
+          ]
+      ]
+  },
+  {
+      "id": "5abcb8116b9b45d6",
+      "type": "api-call-service",
+      "z": "287c7e542b3208bb",
+      "name": "OFF",
+      "server": "35e87b1c.c2e7e4",
+      "version": 5,
+      "debugenabled": false,
+      "domain": "switch",
+      "service": "turn_off",
+      "areaId": [],
+      "deviceId": [],
+      "entityId": [
+          "switch.smart_plug_2"
+      ],
+      "data": "",
+      "dataType": "jsonata",
+      "mergeContext": "",
+      "mustacheAltTags": false,
+      "outputProperties": [],
+      "queue": "none",
+      "x": 470,
+      "y": 360,
+      "wires": [
+          [
+              "2b8439f4f39cb447"
+          ]
+      ]
+  },
+  {
+      "id": "2f94b23e27a64a8d",
+      "type": "comment",
+      "z": "287c7e542b3208bb",
+      "name": "Blynk to Node-Red which TOGGLES device on HomeAssistant",
+      "info": "",
+      "x": 280,
+      "y": 140,
+      "wires": []
+  },
+  {
+      "id": "2e4ebd48fe6bc8bc",
+      "type": "ha-device",
+      "z": "287c7e542b3208bb",
+      "name": "Device#1 ON ",
+      "server": "35e87b1c.c2e7e4",
+      "version": 1,
+      "exposeAsEntityConfig": "",
+      "inputs": 0,
+      "deviceType": "trigger",
+      "device": "07950886a34235258c8de97dd3f52198",
+      "event": {
+          "platform": "device",
+          "type": "turned_on",
+          "device_id": "07950886a34235258c8de97dd3f52198",
+          "entity_id": "5dfcdfa87422e0da692db0e026ccc956",
+          "domain": "switch",
+          "metadata": {
+              "secondary": false
+          }
+      },
+      "capabilities": [],
+      "outputProperties": [
+          {
+              "property": "payload",
+              "propertyType": "msg",
+              "value": "1",
+              "valueType": "jsonata"
+          }
+      ],
+      "x": 970,
+      "y": 120,
+      "wires": [
+          [
+              "a492910bb6fd0cc2"
+          ]
+      ]
+  },
+  {
+      "id": "26c9e4aabaf255a3",
+      "type": "ha-device",
+      "z": "287c7e542b3208bb",
+      "name": "Device#1 OFF",
+      "server": "35e87b1c.c2e7e4",
+      "version": 1,
+      "exposeAsEntityConfig": "",
+      "inputs": 0,
+      "deviceType": "trigger",
+      "device": "07950886a34235258c8de97dd3f52198",
+      "event": {
+          "platform": "device",
+          "type": "turned_off",
+          "device_id": "07950886a34235258c8de97dd3f52198",
+          "entity_id": "5dfcdfa87422e0da692db0e026ccc956",
+          "domain": "switch",
+          "metadata": {
+              "secondary": false
+          }
+      },
+      "capabilities": [],
+      "outputProperties": [
+          {
+              "property": "payload",
+              "propertyType": "msg",
+              "value": "0",
+              "valueType": "jsonata"
+          }
+      ],
+      "x": 970,
+      "y": 180,
+      "wires": [
+          [
+              "a492910bb6fd0cc2"
+          ]
+      ]
+  },
+  {
+      "id": "13093e444ff16b3b",
+      "type": "comment",
+      "z": "287c7e542b3208bb",
+      "name": "Device # 5",
+      "info": "",
+      "x": 940,
+      "y": 720,
+      "wires": []
+  },
+  {
+      "id": "2f21ca86993ce51c",
+      "type": "comment",
+      "z": "287c7e542b3208bb",
+      "name": "Device # 1",
+      "info": "",
+      "x": 940,
+      "y": 80,
+      "wires": []
+  },
+  {
+      "id": "73397e2b786df131",
+      "type": "comment",
+      "z": "287c7e542b3208bb",
+      "name": "Device # 2",
+      "info": "",
+      "x": 940,
+      "y": 240,
+      "wires": []
+  },
+  {
+      "id": "935308e44549a3d9",
+      "type": "comment",
+      "z": "287c7e542b3208bb",
+      "name": "Device # 4",
+      "info": "",
+      "x": 940,
+      "y": 560,
+      "wires": []
+  },
+  {
+      "id": "6d4daac255f67f00",
+      "type": "comment",
+      "z": "287c7e542b3208bb",
+      "name": "Device # 3",
+      "info": "",
+      "x": 940,
+      "y": 400,
+      "wires": []
+  },
+  {
+      "id": "012cce351408cdb2",
+      "type": "ha-device",
+      "z": "287c7e542b3208bb",
+      "name": "Device#2 ON ",
+      "server": "35e87b1c.c2e7e4",
+      "version": 1,
+      "exposeAsEntityConfig": "",
+      "inputs": 0,
+      "deviceType": "trigger",
+      "device": "3c69edbfefe02236b752aea87b387220",
+      "event": {
+          "platform": "device",
+          "type": "turned_on",
+          "device_id": "3c69edbfefe02236b752aea87b387220",
+          "entity_id": "ae6db02e72001245b73d83deafb45e6c",
+          "domain": "switch",
+          "metadata": {
+              "secondary": false
+          }
+      },
+      "capabilities": [],
+      "outputProperties": [
+          {
+              "property": "payload",
+              "propertyType": "msg",
+              "value": "1",
+              "valueType": "jsonata"
+          }
+      ],
+      "x": 970,
+      "y": 280,
+      "wires": [
+          [
+              "d10f010bcc088dab"
+          ]
+      ]
+  },
+  {
+      "id": "f5b8420c1ba3eda7",
+      "type": "ha-device",
+      "z": "287c7e542b3208bb",
+      "name": "Device#2 OFF",
+      "server": "35e87b1c.c2e7e4",
+      "version": 1,
+      "exposeAsEntityConfig": "",
+      "inputs": 0,
+      "deviceType": "trigger",
+      "device": "3c69edbfefe02236b752aea87b387220",
+      "event": {
+          "platform": "device",
+          "type": "turned_off",
+          "device_id": "3c69edbfefe02236b752aea87b387220",
+          "entity_id": "ae6db02e72001245b73d83deafb45e6c",
+          "domain": "switch",
+          "metadata": {
+              "secondary": false
+          }
+      },
+      "capabilities": [],
+      "outputProperties": [
+          {
+              "property": "payload",
+              "propertyType": "msg",
+              "value": "0",
+              "valueType": "jsonata"
+          }
+      ],
+      "x": 970,
+      "y": 340,
+      "wires": [
+          [
+              "d10f010bcc088dab"
+          ]
+      ]
+  },
+  {
+      "id": "f251665400b2e3c6",
+      "type": "ha-device",
+      "z": "287c7e542b3208bb",
+      "name": "Device#3 OFF",
+      "server": "35e87b1c.c2e7e4",
+      "version": 1,
+      "exposeAsEntityConfig": "",
+      "inputs": 0,
+      "deviceType": "trigger",
+      "device": "f184ae5709084edd27dc05808fc9cfc6",
+      "event": {
+          "platform": "device",
+          "type": "turned_off",
+          "device_id": "f184ae5709084edd27dc05808fc9cfc6",
+          "entity_id": "0cfb2fd581ff344fa1badcf8cf88c869",
+          "domain": "switch",
+          "metadata": {
+              "secondary": false
+          }
+      },
+      "capabilities": [],
+      "outputProperties": [
+          {
+              "property": "payload",
+              "propertyType": "msg",
+              "value": "0",
+              "valueType": "jsonata"
+          }
+      ],
+      "x": 970,
+      "y": 500,
+      "wires": [
+          [
+              "2d2e0150d189d77d"
+          ]
+      ]
+  },
+  {
+      "id": "6bd5ece461cbc704",
+      "type": "ha-device",
+      "z": "287c7e542b3208bb",
+      "name": "Device#3 ON ",
+      "server": "35e87b1c.c2e7e4",
+      "version": 1,
+      "exposeAsEntityConfig": "",
+      "inputs": 0,
+      "deviceType": "trigger",
+      "device": "f184ae5709084edd27dc05808fc9cfc6",
+      "event": {
+          "platform": "device",
+          "type": "turned_on",
+          "device_id": "f184ae5709084edd27dc05808fc9cfc6",
+          "entity_id": "0cfb2fd581ff344fa1badcf8cf88c869",
+          "domain": "switch",
+          "metadata": {
+              "secondary": false
+          }
+      },
+      "capabilities": [],
+      "outputProperties": [
+          {
+              "property": "payload",
+              "propertyType": "msg",
+              "value": "1",
+              "valueType": "jsonata"
+          }
+      ],
+      "x": 970,
+      "y": 440,
+      "wires": [
+          [
+              "2d2e0150d189d77d"
+          ]
+      ]
+  },
+  {
+      "id": "d2c941aa9d3c9707",
+      "type": "ha-device",
+      "z": "287c7e542b3208bb",
+      "name": "Device#4 OFF",
+      "server": "35e87b1c.c2e7e4",
+      "version": 1,
+      "exposeAsEntityConfig": "",
+      "inputs": 0,
+      "deviceType": "trigger",
+      "device": "ca3034748a9d4a4d1a83398ff36e2dd9",
+      "event": {
+          "platform": "device",
+          "type": "turned_off",
+          "device_id": "ca3034748a9d4a4d1a83398ff36e2dd9",
+          "entity_id": "d4e30306fcd23bc3ab25355d3473bf84",
+          "domain": "switch",
+          "metadata": {
+              "secondary": false
+          }
+      },
+      "capabilities": [],
+      "outputProperties": [
+          {
+              "property": "payload",
+              "propertyType": "msg",
+              "value": "0",
+              "valueType": "jsonata"
+          }
+      ],
+      "x": 970,
+      "y": 660,
+      "wires": [
+          [
+              "8f9e73da87d76ebf"
+          ]
+      ]
+  },
+  {
+      "id": "b9ca94517720b12d",
+      "type": "ha-device",
+      "z": "287c7e542b3208bb",
+      "name": "Device#4 ON ",
+      "server": "35e87b1c.c2e7e4",
+      "version": 1,
+      "exposeAsEntityConfig": "",
+      "inputs": 0,
+      "deviceType": "trigger",
+      "device": "ca3034748a9d4a4d1a83398ff36e2dd9",
+      "event": {
+          "platform": "device",
+          "type": "turned_on",
+          "device_id": "ca3034748a9d4a4d1a83398ff36e2dd9",
+          "entity_id": "d4e30306fcd23bc3ab25355d3473bf84",
+          "domain": "switch",
+          "metadata": {
+              "secondary": false
+          }
+      },
+      "capabilities": [],
+      "outputProperties": [
+          {
+              "property": "payload",
+              "propertyType": "msg",
+              "value": "1",
+              "valueType": "jsonata"
+          }
+      ],
+      "x": 970,
+      "y": 600,
+      "wires": [
+          [
+              "8f9e73da87d76ebf"
+          ]
+      ]
+  },
+  {
+      "id": "d8f7347683282cd5",
+      "type": "ha-device",
+      "z": "287c7e542b3208bb",
+      "name": "Device#5 OFF",
+      "server": "35e87b1c.c2e7e4",
+      "version": 1,
+      "exposeAsEntityConfig": "",
+      "inputs": 0,
+      "deviceType": "trigger",
+      "device": "5e625d60e2a5db9574b652892c3c9974",
+      "event": {
+          "platform": "device",
+          "type": "turned_off",
+          "device_id": "5e625d60e2a5db9574b652892c3c9974",
+          "entity_id": "628a922bbe19ecdc783fdf45b69833d2",
+          "domain": "switch",
+          "metadata": {
+              "secondary": false
+          }
+      },
+      "capabilities": [],
+      "outputProperties": [
+          {
+              "property": "payload",
+              "propertyType": "msg",
+              "value": "0",
+              "valueType": "jsonata"
+          }
+      ],
+      "x": 970,
+      "y": 820,
+      "wires": [
+          [
+              "1c8881f162cf6b54"
+          ]
+      ]
+  },
+  {
+      "id": "4ad32815f55ba31a",
+      "type": "ha-device",
+      "z": "287c7e542b3208bb",
+      "name": "Device#5 ON ",
+      "server": "35e87b1c.c2e7e4",
+      "version": 1,
+      "exposeAsEntityConfig": "",
+      "inputs": 0,
+      "deviceType": "trigger",
+      "device": "5e625d60e2a5db9574b652892c3c9974",
+      "event": {
+          "platform": "device",
+          "type": "turned_on",
+          "device_id": "5e625d60e2a5db9574b652892c3c9974",
+          "entity_id": "628a922bbe19ecdc783fdf45b69833d2",
+          "domain": "switch",
+          "metadata": {
+              "secondary": false
+          }
+      },
+      "capabilities": [],
+      "outputProperties": [
+          {
+              "property": "payload",
+              "propertyType": "msg",
+              "value": "1",
+              "valueType": "jsonata"
+          }
+      ],
+      "x": 970,
+      "y": 760,
+      "wires": [
+          [
+              "1c8881f162cf6b54"
+          ]
+      ]
+  },
+  {
+      "id": "a492910bb6fd0cc2",
+      "type": "blynk-iot-out-write",
+      "z": "287c7e542b3208bb",
+      "name": "Updates Device#1 in BLYNK",
+      "pin": "0",
+      "pinmode": 0,
+      "client": "69abe4b978976ea5",
+      "x": 1240,
+      "y": 140,
+      "wires": []
+  },
+  {
+      "id": "d10f010bcc088dab",
+      "type": "blynk-iot-out-write",
+      "z": "287c7e542b3208bb",
+      "name": "Updates Device#2 in BLYNK",
+      "pin": "1",
+      "pinmode": 0,
+      "client": "69abe4b978976ea5",
+      "x": 1240,
+      "y": 300,
+      "wires": []
+  },
+  {
+      "id": "2d2e0150d189d77d",
+      "type": "blynk-iot-out-write",
+      "z": "287c7e542b3208bb",
+      "name": "Updates Device#3 in BLYNK",
+      "pin": "2",
+      "pinmode": 0,
+      "client": "69abe4b978976ea5",
+      "x": 1240,
+      "y": 460,
+      "wires": []
+  },
+  {
+      "id": "8f9e73da87d76ebf",
+      "type": "blynk-iot-out-write",
+      "z": "287c7e542b3208bb",
+      "name": "Updates Device#4 in BLYNK",
+      "pin": "3",
+      "pinmode": 0,
+      "client": "69abe4b978976ea5",
+      "x": 1260,
+      "y": 620,
+      "wires": []
+  },
+  {
+      "id": "1c8881f162cf6b54",
+      "type": "blynk-iot-out-write",
+      "z": "287c7e542b3208bb",
+      "name": "Updates Device#5 in BLYNK",
+      "pin": "4",
+      "pinmode": 0,
+      "client": "69abe4b978976ea5",
+      "x": 1260,
+      "y": 780,
+      "wires": []
+  },
+  {
+      "id": "71d4c516a60d9818",
+      "type": "comment",
+      "z": "287c7e542b3208bb",
+      "name": "HomeAssistant to Blynk",
+      "info": "",
+      "x": 960,
+      "y": 40,
+      "wires": []
+  },
+  {
+      "id": "69abe4b978976ea5",
+      "type": "blynk-iot-client",
+      "name": "CompSystems",
+      "path": "blynk.cloud",
+      "key": "26Ps3G2ZuJnHCH1jAQW3MWNH64XnAQ04",
+      "tmpl": "TMPL43Dvz05af",
+      "dbg_all": true,
+      "dbg_log": false,
+      "dbg_prop": false,
+      "dbg_sync": false,
+      "dbg_low": false,
+      "dbg_pins": "",
+      "multi_cmd": false,
+      "enabled": true
+  },
+  {
+      "id": "35e87b1c.c2e7e4",
+      "type": "server",
+      "name": "Home Assistant",
+      "addon": true
+  }
+]
