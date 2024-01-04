@@ -11,6 +11,7 @@
   <ol>
     <li><a href="#node-red-setup">Node Red Setup</a></li>
     <li><a href="#node-red-configuration">Node Red Configuration</a></li>
+    <li><a href="#my-node-red-flows">My Node Red Flows</a></li>
     <li><a href="#references">References</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
@@ -42,25 +43,25 @@ You need to install a few new nodes into Node-Red before we start so you click t
 ## My Node Red Flows
 ### Firebase flow
 
-Click here to get the Json to create this flow 
+[Click here](./firebase.json)  to get the Json to create this flow 
 
   <img align="center" width="90%" src="../../Assets/NodeRed/firebase.png" style="max-width: 95%;margin:10px 20px">
 
 ### Blynk flow
 
-Click here to get the Json to create this flow 
+[Click here](./blynk.json)  to get the Json to create this flow 
 
   <img align="center" width="90%" src="../../Assets/NodeRed/blynk.png" style="max-width: 95%;margin:10px 20px">
 
 ### Telegram flow
 
-Click here to get the Json to create this flow 
+[Click here](./telegram.json) to get the Json to create this flow 
 
   <img align="center" width="90%" src="../../Assets/NodeRed/telegram.png" style="max-width: 95%;margin:10px 20px">
 
 ### Devices flow
 
-Click here to get the Json to create this flow 
+[Click here](./device.json)  to get the Json to create this flow 
 
   <img align="center" width="90%" src="../../Assets/NodeRed/device.png" style="max-width: 95%;margin:10px 20px">
 
