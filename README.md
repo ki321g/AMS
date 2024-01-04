@@ -10,7 +10,6 @@
   <summary>Table of Contents</summary>
   <ol>
     <li><a href="#about-the-project">About The Project</a></li>
-    <li><a href="#live-demo">Live Demo</a></li>
     <li><a href="#video-walk-through">Video Walk Through</a></li>   
     <li><a href="#installation">Installation</a></li>
     <li><a href="#references">References</a></li>
