@@ -29,7 +29,7 @@ Visit the following URL to see a running demo of our application.
 **URL**: [https://a-s-m.glitch.me/](https://a-s-m.glitch.me/)
 
 <a href="https://a-s-m.glitch.me/" target="_blank">
- <img src="Assets/website.png" alt="visit website"/>
+ <img src="./Assets/website.png" alt="visit website"/>
 </a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
