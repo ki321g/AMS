@@ -34,7 +34,7 @@ Additionally, AMS implements secure login protocols for devices, requiring facia
 <!-- Project Architecture -->
 ## Project Architecture
 
-<img align="center" width="90%" src="Assets/graph.jpg" style="max-width: 95%;margin:10px 20px"> 
+<img align="center" width="100%" src="Assets/graph.jpg" style="max-width: 100%;margin:10px 20px"> 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
