@@ -34,7 +34,14 @@ Additionally, AMS implements secure login protocols for devices, requiring facia
 <!-- Project Architecture -->
 ## Project Architecture
 
+This Architecture drawing is for a prototype system to prove the concept would work. The devices are smart plugs and in a real life system the button and code to start a device should be connected to the device itself. 
+
 <img align="center" width="100%" src="Assets/graph.jpg" style="max-width: 100%;margin:10px 20px"> 
+
+1. User Presses one of the five **Buttons on the breadboard** 
+2. Facial Recognition **Script running on the Raspberry Pi** executes the related code for the button pressed
+3. If the user is granted access to the device a **HTTP Request** is sent to the Domain through a **cloudflare tunnel** to the **Home Assistant Pi** on the same Network.
+4. **Node-Red** receives the **HTTP Request**, turns on the correct **Device**, sends **updates to all related cloud solutions** and then sends a **HTTP Response**.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
