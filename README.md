@@ -10,6 +10,7 @@
   <summary>Table of Contents</summary>
   <ol>
     <li><a href="#about-the-project">About The Project</a></li>
+    <li><a href="#project-architecture">Project Architecture</a></li>
     <li><a href="#video-walk-through">Video Walk Through</a></li>   
     <li><a href="#setup-steps">Setup Steps</a></li>
     <li><a href="#installation-instructions">Installation Instructions</a></li>
@@ -28,6 +29,13 @@ This system optimizes energy consumption by selectively powering on devices base
 
 Additionally, AMS implements secure login protocols for devices, requiring facial recognition and/or QR code authentication, thereby enhancing security measures within the controlled environment. By providing detailed access control and authentication mechanisms, AMS ensures heightened security and restricted access while optimizing resource utilization.
  
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- Project Architecture -->
+## Project Architecture
+
+<img align="center" width="90%" src="Assets/graph.jpg" style="max-width: 95%;margin:10px 20px"> 
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- VIDEO -->
